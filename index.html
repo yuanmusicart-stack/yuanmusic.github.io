@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yuan Music Art</title>
+    <title>Yuan Music Art | Inspiring Creativity</title>
     <style>
-        /* 基础样式 */
+        /* Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
@@ -19,9 +19,9 @@
             scroll-behavior: smooth;
         }
 
-        /* 导航栏 */
+        /* Navigation */
         header {
-            background: #fff;
+            background: #ffffff;
             padding: 1rem 5%;
             position: fixed;
             width: 100%;
@@ -38,6 +38,7 @@
             font-weight: bold;
             color: #2c3e50;
             text-decoration: none;
+            letter-spacing: 1px;
         }
 
         nav ul {
@@ -46,7 +47,7 @@
         }
 
         nav ul li {
-            margin-left: 20px;
+            margin-left: 25px;
             position: relative;
         }
 
@@ -55,13 +56,14 @@
             color: #555;
             font-weight: 500;
             transition: color 0.3s;
+            font-size: 0.95rem;
         }
 
         nav ul li a:hover {
-            color: #e74c3c;
+            color: #d35400;
         }
 
-        /* 下拉菜单样式 */
+        /* Dropdown Menu */
         .dropdown:hover .dropdown-content {
             display: block;
         }
@@ -70,28 +72,31 @@
             display: none;
             position: absolute;
             background-color: #fff;
-            min-width: 180px;
+            min-width: 200px;
             box-shadow: 0 8px 16px rgba(0,0,0,0.1);
             top: 100%;
             left: 0;
             border-radius: 4px;
+            padding: 10px 0;
         }
 
         .dropdown-content a {
             color: #333;
-            padding: 12px 16px;
+            padding: 12px 20px;
             display: block;
-            border-bottom: 1px solid #f0f0f0;
+            text-decoration: none;
+            font-size: 0.9rem;
         }
 
         .dropdown-content a:hover {
-            background-color: #f9f9f9;
+            background-color: #f8f9fa;
+            color: #d35400;
         }
 
-        /* Hero 区域 */
+        /* Hero Section */
         .hero {
-            height: 80vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1350&q=80');
+            height: 85vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -101,71 +106,87 @@
             color: white;
             text-align: center;
             margin-top: 60px;
+            padding: 0 20px;
         }
 
-        .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; }
-        .hero p { font-size: 1.2rem; margin-bottom: 2rem; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 1.5rem; }
+        .hero p { font-size: 1.25rem; margin-bottom: 2.5rem; max-width: 800px; }
+        
         .btn {
-            padding: 12px 30px;
-            background: #e74c3c;
+            padding: 15px 35px;
+            background: #d35400;
             color: white;
             text-decoration: none;
-            border-radius: 30px;
-            transition: background 0.3s;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.2s, background 0.3s;
         }
-        .btn:hover { background: #c0392b; }
+        .btn:hover { 
+            background: #e67e22;
+            transform: scale(1.05);
+        }
 
-        /* 通用区块 */
+        /* Standard Sections */
         section {
-            padding: 80px 10%;
+            padding: 100px 10%;
             text-align: center;
         }
 
         section h2 {
             font-size: 2.5rem;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
             position: relative;
-            padding-bottom: 10px;
+            padding-bottom: 15px;
+            color: #2c3e50;
         }
 
         section h2::after {
             content: '';
-            width: 50px;
-            height: 3px;
-            background: #e74c3c;
+            width: 60px;
+            height: 4px;
+            background: #d35400;
             position: absolute;
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
         }
 
+        /* Grid System */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
             margin-top: 40px;
         }
 
         .card {
-            padding: 30px;
-            background: #f9f9f9;
-            border-radius: 10px;
-            transition: transform 0.3s;
+            padding: 40px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
         }
 
-        .card:hover { transform: translateY(-10px); }
+        .card:hover { 
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .card h3 { margin-bottom: 15px; color: #d35400; }
 
         footer {
             background: #2c3e50;
-            color: white;
-            padding: 40px 10%;
+            color: #bdc3c7;
+            padding: 60px 10%;
             text-align: center;
         }
 
-        /* 响应式适配手机 */
+        /* Mobile View */
         @media (max-width: 768px) {
-            nav ul { display: none; } /* 手机端建议后续增加汉堡菜单 */
-            .hero h1 { font-size: 2rem; }
+            nav ul { display: none; } 
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1rem; }
         }
     </style>
 </head>
@@ -177,7 +198,7 @@
             <ul>
                 <li><a href="#about">About Us</a></li>
                 <li class="dropdown">
-                    <a href="#programs">Programs ▾</a>
+                    <a href="#classes">Programs ▾</a>
                     <div class="dropdown-content">
                         <a href="#classes">Classes</a>
                         <a href="#after-school">After-school Programs</a>
@@ -188,9 +209,10 @@
                 <li class="dropdown">
                     <a href="#">More ▾</a>
                     <div class="dropdown-content">
-                        <a href="#">Events</a>
-                        <a href="#">Gallery</a>
-                        <a href="#">Contact</a>
+                        <a href="#">School Events</a>
+                        <a href="#">Student Gallery</a>
+                        <a href="#">FAQ</a>
+                        <a href="#contact">Contact Us</a>
                     </div>
                 </li>
             </ul>
@@ -198,49 +220,51 @@
     </header>
 
     <section class="hero">
-        <h1>探索音乐与艺术的无限可能</h1>
-        <p>让才华在 YUAN MUSIC ART 绽放</p>
-        <a href="#join" class="btn">立即加入</a>
+        <h1>Where Passion Meets Artistry</h1>
+        <p>Providing world-class music and arts education to help students discover their unique creative voice.</p>
+        <a href="#join" class="btn">Book a Trial Lesson</a>
     </section>
 
     <section id="about">
         <h2>About Us</h2>
-        <p>这里填写关于你们艺术中心的介绍。我们致力于为学生提供最高质量的音乐教育和艺术指导。</p>
+        <p>At Yuan Music Art, we believe that every student has a story to tell. Our mission is to provide a nurturing environment where technical skill meets creative expression. Whether you are a beginner or an advanced artist, we are here to guide your journey.</p>
     </section>
 
-    <section id="classes" style="background: #f4f4f4;">
-        <h2>Classes</h2>
+    <section id="classes" style="background: #fdfdfd;">
+        <h2>Our Classes</h2>
         <div class="grid">
             <div class="card">
-                <h3>钢琴课程</h3>
-                <p>一对一专业指导，涵盖古典到流行。</p>
+                <h3>Piano</h3>
+                <p>Private lessons covering classical, jazz, and contemporary styles tailored to your pace.</p>
             </div>
             <div class="card">
-                <h3>美术课程</h3>
-                <p>培养创造力与审美，探索色彩世界。</p>
+                <h3>Fine Arts</h3>
+                <p>Explore painting, sketching, and digital arts to build a strong foundation in visual expression.</p>
             </div>
             <div class="card">
-                <h3>小提琴课程</h3>
-                <p>严谨的技巧训练，开启优雅的音乐之旅。</p>
+                <h3>Violin & Strings</h3>
+                <p>Professional string instruction focusing on posture, technique, and musicality.</p>
             </div>
         </div>
     </section>
 
     <section id="after-school">
         <h2>After-school Programs</h2>
-        <p>为孩子们提供丰富多彩的课后艺术托管与兴趣小组。</p>
+        <p>Our enrichment programs provide a safe and inspiring space for students to explore various artistic disciplines after their regular school hours.</p>
     </section>
 
-    <section id="teachers" style="background: #f4f4f4;">
-        <h2>Teachers</h2>
-        <p>我们的教师均来自顶尖艺术院校，拥有丰富的教学经验。</p>
+    <section id="teachers" style="background: #fdfdfd;">
+        <h2>Meet Our Teachers</h2>
+        <p>Our faculty consists of experienced performers and educators from prestigious conservatories and universities worldwide.</p>
     </section>
 
     <section id="join">
-        <h2>Join Us</h2>
-        <p>准备好开启艺术之旅了吗？联系我们预约试听课！</p>
-        <br>
-        <p>Email: info@yuanmusic.art</p>
+        <h2>Join Our Community</h2>
+        <p>Ready to start your musical or artistic journey? We’d love to hear from you!</p>
+        <div style="margin-top: 30px;">
+            <p><strong>Email:</strong> info@yuanmusic.art</p>
+            <p><strong>Location:</strong> [Enter Your Address Here]</p>
+        </div>
     </section>
 
     <footer>
