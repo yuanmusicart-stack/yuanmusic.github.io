@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yuan Music Art | Inspiring Creativity</title>
+    <title>Yuan Music | Where Passion Meets Artistry</title>
     <style>
         /* Base Styles */
         * {
@@ -19,10 +19,10 @@
             scroll-behavior: smooth;
         }
 
-        /* Navigation */
+        /* --- Updated Header Section --- */
         header {
             background: #ffffff;
-            padding: 1rem 5%;
+            padding: 10px 5%; /* Adjusted padding for logo space */
             position: fixed;
             width: 100%;
             top: 0;
@@ -33,14 +33,31 @@
             align-items: center;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #2c3e50;
+        .logo-container {
+            display: flex;
+            align-items: center;
             text-decoration: none;
-            letter-spacing: 1px;
         }
 
+        /* This styles your new circular logo */
+        .logo-img {
+            height: 60px; /* Adjust this to make your logo bigger or smaller */
+            width: 60px;  /* Keep height and width the same for a circle */
+            object-fit: contain; /* Ensures the whole logo is visible inside the frame */
+            border-radius: 50%; /* Makes the image frame a perfect circle */
+            /* Removed background color, relying on border-radius for clean fit */
+        }
+
+        .logo-text {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #2c3e50;
+            letter-spacing: 1.5px;
+            margin-left: 15px; /* Space between logo image and text */
+        }
+        /* ------------------------------- */
+
+        /* Navigation */
         nav ul {
             display: flex;
             list-style: none;
@@ -105,7 +122,7 @@
             align-items: center;
             color: white;
             text-align: center;
-            margin-top: 60px;
+            margin-top: 80px; /* Adjusted to fit the slightly larger header */
             padding: 0 20px;
         }
 
@@ -187,13 +204,18 @@
             nav ul { display: none; } 
             .hero h1 { font-size: 2.2rem; }
             .hero p { font-size: 1rem; }
+            .logo-img { height: 50px; width: 50px; } /* Slightly smaller on mobile */
+            .logo-text { font-size: 1.1rem; margin-left: 10px; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="#" class="logo">YUAN MUSIC ART</a>
+        <a href="#" class="logo-container">
+            <img src="logo.png" alt="Yuan Music Logo" class="logo-img">
+            <span class="logo-text">YUAN MUSIC</span>
+        </a>
         <nav>
             <ul>
                 <li><a href="#about">About Us</a></li>
@@ -227,7 +249,7 @@
 
     <section id="about">
         <h2>About Us</h2>
-        <p>At Yuan Music Art, we believe that every student has a story to tell. Our mission is to provide a nurturing environment where technical skill meets creative expression. Whether you are a beginner or an advanced artist, we are here to guide your journey.</p>
+        <p>At Yuan Music, we believe that every student has a story to tell. Our mission is to provide a nurturing environment where technical skill meets creative expression. Whether you are a beginner or an advanced artist, we are here to guide your journey.</p>
     </section>
 
     <section id="classes" style="background: #fdfdfd;">
