@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yuan Music Art | Inspiring Creativity</title>
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        header {
+            background: #ffffff;
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav ul li a:hover {
+            color: #d35400;
+        }
+
+        /* Dropdown Menu */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            top: 100%;
+            left: 0;
+            border-radius: 4px;
+            padding: 10px 0;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 12px 20px;
+            display: block;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f8f9fa;
+            color: #d35400;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 85vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            margin-top: 60px;
+            padding: 0 20px;
+        }
+
+        .hero h1 { font-size: 3.5rem; margin-bottom: 1.5rem; }
+        .hero p { font-size: 1.25rem; margin-bottom: 2.5rem; max-width: 800px; }
+        
+        .btn {
+            padding: 15px 35px;
+            background: #d35400;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.2s, background 0.3s;
+        }
+        .btn:hover { 
+            background: #e67e22;
+            transform: scale(1.05);
+        }
+
+        /* Standard Sections */
+        section {
+            padding: 100px 10%;
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        section h2::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background: #d35400;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Grid System */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card {
+            padding: 40px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+        }
+
+        .card:hover { 
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .card h3 { margin-bottom: 15px; color: #d35400; }
+
+        footer {
+            background: #2c3e50;
+            color: #bdc3c7;
+            padding: 60px 10%;
+            text-align: center;
+        }
+
+        /* Mobile View */
+        @media (max-width: 768px) {
+            nav ul { display: none; } 
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">YUAN MUSIC ART</a>
+        <nav>
+            <ul>
+                <li><a href="#about">About Us</a></li>
+                <li class="dropdown">
+                    <a href="#classes">Programs ▾</a>
+                    <div class="dropdown-content">
+                        <a href="#classes">Classes</a>
+                        <a href="#after-school">After-school Programs</a>
+                    </div>
+                </li>
+                <li><a href="#teachers">Teachers</a></li>
+                <li><a href="#join">Join Us</a></li>
+                <li class="dropdown">
+                    <a href="#">More ▾</a>
+                    <div class="dropdown-content">
+                        <a href="#">School Events</a>
+                        <a href="#">Student Gallery</a>
+                        <a href="#">FAQ</a>
+                        <a href="#contact">Contact Us</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Where Passion Meets Artistry</h1>
+        <p>Providing world-class music and arts education to help students discover their unique creative voice.</p>
+        <a href="#join" class="btn">Book a Trial Lesson</a>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>At Yuan Music Art, we believe that every student has a story to tell. Our mission is to provide a nurturing environment where technical skill meets creative expression. Whether you are a beginner or an advanced artist, we are here to guide your journey.</p>
+    </section>
+
+    <section id="classes" style="background: #fdfdfd;">
+        <h2>Our Classes</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Piano</h3>
+                <p>Private lessons covering classical, jazz, and contemporary styles tailored to your pace.</p>
+            </div>
+            <div class="card">
+                <h3>Fine Arts</h3>
+                <p>Explore painting, sketching, and digital arts to build a strong foundation in visual expression.</p>
+            </div>
+            <div class="card">
+                <h3>Violin & Strings</h3>
+                <p>Professional string instruction focusing on posture, technique, and musicality.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="after-school">
+        <h2>After-school Programs</h2>
+        <p>Our enrichment programs provide a safe and inspiring space for students to explore various artistic disciplines after their regular school hours.</p>
+    </section>
+
+    <section id="teachers" style="background: #fdfdfd;">
+        <h2>Meet Our Teachers</h2>
+        <p>Our faculty consists of experienced performers and educators from prestigious conservatories and universities worldwide.</p>
+    </section>
+
+    <section id="join">
+        <h2>Join Our Community</h2>
+        <p>Ready to start your musical or artistic journey? We’d love to hear from you!</p>
+        <div style="margin-top: 30px;">
+            <p><strong>Email:</strong> info@yuanmusic.art</p>
+            <p><strong>Location:</strong> [Enter Your Address Here]</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Yuan Music Art. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
