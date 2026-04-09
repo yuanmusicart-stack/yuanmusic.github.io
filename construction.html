@@ -3,294 +3,266 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yuan Music | Where Passion Meets Artistry</title>
+    <title>Yuan Music | Artistry Rooted in Faith</title>
     <style>
-        /* Base Styles */
+        /* 颜色定义 */
+        :root {
+            --gold: #D4AF37; /* 金色，匹配Logo中的树 */
+            --black: #1a1a1a;
+            --white: #ffffff;
+            --light-gray: #f9f9f9;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Playfair Display', serif; /* 经典的优雅字体 */
         }
 
         body {
-            line-height: 1.6;
-            color: #333;
+            line-height: 1.8;
+            color: var(--black);
+            background-color: var(--white);
             scroll-behavior: smooth;
         }
 
-        /* --- Updated Header Section --- */
+        /* 导航栏 */
         header {
-            background: #ffffff;
-            padding: 10px 5%; /* Adjusted padding for logo space */
+            background: var(--white);
+            padding: 15px 5%;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .logo-container {
+        .brand-container {
             display: flex;
+            flex-direction: column;
             align-items: center;
             text-decoration: none;
         }
 
-        /* This styles your new circular logo */
         .logo-img {
-            height: 60px; /* Adjust this to make your logo bigger or smaller */
-            width: 60px;  /* Keep height and width the same for a circle */
-            object-fit: contain; /* Ensures the whole logo is visible inside the frame */
-            border-radius: 50%; /* Makes the image frame a perfect circle */
-            /* Removed background color, relying on border-radius for clean fit */
+            height: 70px;
+            width: 70px;
+            object-fit: contain;
+            border-radius: 50%;
         }
 
-        .logo-text {
-            font-size: 1.3rem;
+        .brand-name {
+            font-size: 1rem;
             font-weight: bold;
-            color: #2c3e50;
-            letter-spacing: 1.5px;
-            margin-left: 15px; /* Space between logo image and text */
+            color: var(--gold); /* 这里的金色与Logo中的树一致 */
+            letter-spacing: 2px;
+            margin-top: 5px;
+            text-transform: uppercase;
         }
-        /* ------------------------------- */
 
-        /* Navigation */
         nav ul {
             display: flex;
             list-style: none;
         }
 
         nav ul li {
-            margin-left: 25px;
-            position: relative;
+            margin-left: 30px;
         }
 
         nav ul li a {
             text-decoration: none;
-            color: #555;
+            color: var(--black);
             font-weight: 500;
             transition: color 0.3s;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
         }
 
         nav ul li a:hover {
-            color: #d35400;
+            color: var(--gold);
         }
 
-        /* Dropdown Menu */
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #fff;
-            min-width: 200px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-            top: 100%;
-            left: 0;
-            border-radius: 4px;
-            padding: 10px 0;
-        }
-
-        .dropdown-content a {
-            color: #333;
-            padding: 12px 20px;
-            display: block;
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-
-        .dropdown-content a:hover {
-            background-color: #f8f9fa;
-            color: #d35400;
-        }
-
-        /* Hero Section */
+        /* Hero 区域 & 圣经经文 */
         .hero {
-            height: 85vh;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1350&q=80');
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1520529011870-5c6b44c3b8c2?auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            color: white;
+            color: var(--white);
             text-align: center;
-            margin-top: 80px; /* Adjusted to fit the slightly larger header */
             padding: 0 20px;
         }
 
-        .hero h1 { font-size: 3.5rem; margin-bottom: 1.5rem; }
-        .hero p { font-size: 1.25rem; margin-bottom: 2.5rem; max-width: 800px; }
-        
-        .btn {
-            padding: 15px 35px;
-            background: #d35400;
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: transform 0.2s, background 0.3s;
-        }
-        .btn:hover { 
-            background: #e67e22;
-            transform: scale(1.05);
+        .bible-quote {
+            font-style: italic;
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin-bottom: 20px;
+            color: var(--gold);
         }
 
-        /* Standard Sections */
-        section {
-            padding: 100px 10%;
+        .hero h1 { font-size: 4rem; margin-bottom: 1rem; color: var(--white); }
+        .hero p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 700px; }
+
+        /* 通用区块样式 */
+        section { padding: 100px 10%; }
+        h2 { 
+            font-size: 2.5rem; 
+            text-align: center; 
+            margin-bottom: 3rem; 
+            color: var(--black);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* About Us & Vision */
+        .vision-box {
+            background: var(--black);
+            color: var(--white);
+            padding: 60px;
+            border-radius: 5px;
             text-align: center;
+            border-bottom: 5px solid var(--gold);
         }
 
-        section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            position: relative;
-            padding-bottom: 15px;
-            color: #2c3e50;
+        .tithing-note {
+            margin-top: 30px;
+            color: var(--gold);
+            font-weight: bold;
+            font-style: italic;
         }
 
-        section h2::after {
-            content: '';
-            width: 60px;
-            height: 4px;
-            background: #d35400;
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        /* Grid System */
+        /* Programs 卡片 */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
         }
 
         .card {
             padding: 40px;
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
             border: 1px solid #eee;
-        }
-
-        .card:hover { 
-            transform: translateY(-10px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-
-        .card h3 { margin-bottom: 15px; color: #d35400; }
-
-        footer {
-            background: #2c3e50;
-            color: #bdc3c7;
-            padding: 60px 10%;
+            transition: 0.3s;
             text-align: center;
         }
 
-        /* Mobile View */
+        .card:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .card h3 { color: var(--gold); margin-bottom: 15px; text-transform: uppercase; }
+
+        /* 按钮 */
+        .btn {
+            padding: 15px 40px;
+            background: var(--gold);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: bold;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn:hover { background: #b8860b; }
+
+        footer {
+            background: var(--black);
+            color: #888;
+            padding: 50px 10%;
+            text-align: center;
+        }
+
+        /* 响应式 */
         @media (max-width: 768px) {
-            nav ul { display: none; } 
-            .hero h1 { font-size: 2.2rem; }
-            .hero p { font-size: 1rem; }
-            .logo-img { height: 50px; width: 50px; } /* Slightly smaller on mobile */
-            .logo-text { font-size: 1.1rem; margin-left: 10px; }
+            .hero h1 { font-size: 2.5rem; }
+            nav ul { display: none; }
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header>
-        <a href="#" class="logo-container">
-            <img src="logo.png" alt="Yuan Music Logo" class="logo-img">
-            <span class="logo-text">YUAN MUSIC</span>
+        <a href="#" class="brand-container">
+            <img src="logo_website.png" alt="Yuan Music Logo" class="logo-img">
+            <span class="brand-name">Yuan Music</span>
         </a>
         <nav>
             <ul>
-                <li><a href="#about">About Us</a></li>
-                <li class="dropdown">
-                    <a href="#classes">Programs ▾</a>
-                    <div class="dropdown-content">
-                        <a href="#classes">Classes</a>
-                        <a href="#after-school">After-school Programs</a>
-                    </div>
-                </li>
-                <li><a href="#teachers">Teachers</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#programs">Programs</a></li>
+                <li><a href="#team">Our Team</a></li>
                 <li><a href="#join">Join Us</a></li>
-                <li class="dropdown">
-                    <a href="#">More ▾</a>
-                    <div class="dropdown-content">
-                        <a href="#">School Events</a>
-                        <a href="#">Student Gallery</a>
-                        <a href="#">FAQ</a>
-                        <a href="#contact">Contact Us</a>
-                    </div>
-                </li>
             </ul>
         </nav>
     </header>
 
-    <section class="hero">
-        <h1>Where Passion Meets Artistry</h1>
-        <p>Providing world-class music and arts education to help students discover their unique creative voice.</p>
-        <a href="#join" class="btn">Book a Trial Lesson</a>
+    <section id="home" class="hero">
+        <div class="bible-quote">
+            "Praise him with the sounding of the trumpet, praise him with the harp and lyre, praise him with timbrel and dancing, praise him with the strings and pipe."
+        </div>
+        <p style="color: var(--gold);">— Psalm 150:3-4</p>
+        <h1>Inspiring Artistry</h1>
+        <p>A faith-based sanctuary for musical excellence and spiritual growth.</p>
+        <a href="#join" class="btn">Get Started</a>
     </section>
 
-    <section id="about">
-        <h2>About Us</h2>
-        <p>At Yuan Music, we believe that every student has a story to tell. Our mission is to provide a nurturing environment where technical skill meets creative expression. Whether you are a beginner or an advanced artist, we are here to guide your journey.</p>
+    <section>
+        <div class="grid">
+            <div>
+                <h2>About Us</h2>
+                <p>Yuan Music is more than a studio; it is a community where talent meets purpose. We believe that music is a divine gift used to uplift souls and connect people.</p>
+            </div>
+            <div class="vision-box">
+                <h2>Mission & Vision</h2>
+                <p>To cultivate the next generation of musicians through professional excellence and Christian values.</p>
+                <div class="tithing-note">
+                    "Each of you should give what you have decided in your heart to give... for God loves a cheerful giver." (2 Cor 9:7)
+                    <br><br>
+                    We commit 10% of our profits to local churches and non-profit organizations.
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="classes" style="background: #fdfdfd;">
-        <h2>Our Classes</h2>
+    <section id="programs" style="background: var(--light-gray);">
+        <h2>Our Programs</h2>
         <div class="grid">
             <div class="card">
-                <h3>Piano</h3>
-                <p>Private lessons covering classical, jazz, and contemporary styles tailored to your pace.</p>
+                <h3>Private Piano Classes</h3>
+                <p>One-on-one professional instruction tailored to each student's journey, focusing on technique, theory, and the joy of worship through music.</p>
             </div>
-            <div class="card">
-                <h3>Fine Arts</h3>
-                <p>Explore painting, sketching, and digital arts to build a strong foundation in visual expression.</p>
-            </div>
-            <div class="card">
-                <h3>Violin & Strings</h3>
-                <p>Professional string instruction focusing on posture, technique, and musicality.</p>
+            <div class="card" style="background: white;">
+                <h3>After-school Programs</h3>
+                <p>We bring music directly to your school. By integrating our programs into the school day, we help busy families reduce commute times and strengthen the bond between students and their school communities.</p>
             </div>
         </div>
     </section>
 
-    <section id="after-school">
-        <h2>After-school Programs</h2>
-        <p>Our enrichment programs provide a safe and inspiring space for students to explore various artistic disciplines after their regular school hours.</p>
+    <section id="team">
+        <h2>Our Team</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto;">Our educators are not only masters of their craft but also mentors dedicated to walking alongside students in their artistic and personal growth.</p>
     </section>
 
-    <section id="teachers" style="background: #fdfdfd;">
-        <h2>Meet Our Teachers</h2>
-        <p>Our faculty consists of experienced performers and educators from prestigious conservatories and universities worldwide.</p>
-    </section>
-
-    <section id="join">
+    <section id="join" style="background: var(--black); color: white; text-align: center;">
         <h2>Join Our Community</h2>
-        <p>Ready to start your musical or artistic journey? We’d love to hear from you!</p>
-        <div style="margin-top: 30px;">
-            <p><strong>Email:</strong> info@yuanmusic.art</p>
-            <p><strong>Location:</strong> [Enter Your Address Here]</p>
-        </div>
+        <p>Experience music that resonates with the heart. Contact us today for a consultation or trial lesson.</p>
+        <br><br>
+        <a href="mailto:info@yuanmusic.art" class="btn">Contact Us Now</a>
     </section>
 
     <footer>
-        <p>&copy; 2026 Yuan Music Art. All Rights Reserved.</p>
+        <p>&copy; 2026 Yuan Music Art Studio. All Rights Reserved. <br> "Solli Deo Gloria" — Glory to God Alone.</p>
     </footer>
 
 </body>
