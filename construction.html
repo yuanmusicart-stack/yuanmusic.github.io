@@ -18,6 +18,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            /* 全局应用 Abadi 字体 */
             font-family: 'Abadi MT Condensed Extra Bold', 'Abadi', 'Arial Nova Cond', sans-serif;
         }
 
@@ -28,44 +29,40 @@
             scroll-behavior: smooth;
         }
 
-        /* --- 导航栏设计 --- */
+        /* --- 调整后的导航栏 --- */
         header {
             background: var(--white);
-            padding: 20px 5%;
+            padding: 10px 5%; /* 减小内边距，让大 Logo 看起来更协调 */
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: center; /* 确保 Logo 和菜单在垂直方向上居中对齐 */
             box-shadow: 0 2px 10px rgba(0,0,0,0.03);
         }
 
         .brand-container {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            align-items: center; /* 水平平行对齐 */
             text-decoration: none;
         }
 
+        /* --- 进一步放大 Logo 并保持圆形 --- */
         .logo-img {
-            height: 120px; 
-            width: 120px;
+            height: 150px; /* 尺寸放大到 150px */
+            width: 150px;
             object-fit: contain;
             border-radius: 50%;
+            transition: transform 0.3s ease;
         }
 
-        .brand-name {
-            font-size: 1.6rem; 
-            font-weight: bold;
-            color: var(--morandi-green); 
-            letter-spacing: 3px;
-            margin-top: 10px;
-            text-transform: uppercase;
+        .logo-img:hover {
+            transform: scale(1.05);
         }
 
-        /* --- 下拉菜单核心代码 --- */
+        /* --- 导航菜单 --- */
         nav ul {
             display: flex;
             list-style: none;
@@ -73,180 +70,27 @@
 
         nav ul li {
             margin-left: 35px;
-            position: relative; /* 必须设置，让下拉框相对于父级定位 */
+            position: relative;
         }
 
         nav ul li a {
             text-decoration: none;
             color: var(--morandi-dark);
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1.3rem; /* 稍微调大了一点菜单字体以匹配大 Logo */
             transition: color 0.3s;
             text-transform: uppercase;
             padding: 10px 0;
             display: inline-block;
         }
 
-        /* 下拉列表容器 */
+        /* 下拉菜单样式保持不变 */
         .dropdown-menu {
-            display: none; /* 默认隐藏 */
+            display: none;
             position: absolute;
             background-color: var(--white);
             min-width: 220px;
             box-shadow: 0 8px 16px rgba(0,0,0,0.1);
             top: 100%;
             left: 0;
-            border-top: 3px solid var(--morandi-green);
-        }
-
-        /* 鼠标悬停显示下拉菜单 */
-        nav ul li:hover > .dropdown-menu {
-            display: block;
-        }
-
-        .dropdown-menu li {
-            margin: 0;
-            width: 100%;
-        }
-
-        .dropdown-menu li a {
-            padding: 12px 20px;
-            font-size: 1rem;
-            text-transform: none;
-            display: block;
-            border-bottom: 1px solid #eee;
-        }
-
-        .dropdown-menu li a:hover {
-            background-color: var(--morandi-bg);
-            color: var(--morandi-green);
-        }
-
-        /* 二级下拉（针对 after-school programs） */
-        .submenu-parent {
-            position: relative;
-        }
-
-        .submenu {
-            display: none;
-            position: absolute;
-            left: 100%;
-            top: 0;
-            background-color: var(--white);
-            min-width: 180px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-        }
-
-        .submenu-parent:hover > .submenu {
-            display: block;
-        }
-
-        /* --- 其余区块样式保持一致 --- */
-        .hero {
-            height: 80vh;
-            background: linear-gradient(rgba(58, 64, 50, 0.4), rgba(58, 64, 50, 0.4)), url('https://images.unsplash.com/photo-1465821508027-567382423106?auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px;
-            margin-top: 180px;
-        }
-
-        .bible-section {
-            background: rgba(248, 249, 247, 0.9);
-            padding: 40px;
-            border-radius: 2px;
-            max-width: 900px;
-            border-left: 5px solid var(--morandi-green);
-        }
-
-        .section-title { font-size: 2.5rem; text-align: center; margin-bottom: 50px; color: var(--morandi-green); letter-spacing: 4px; }
-        section { padding: 100px 10%; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 50px; }
-        .content-box { background: var(--morandi-bg); padding: 50px; border-radius: 4px; }
-        .mission-vision { background: var(--morandi-dark); color: var(--white); padding: 50px; }
-        footer { background: #2d3029; color: #9ea497; padding: 60px 10%; text-align: center; }
-
-        @media (max-width: 900px) {
-            nav ul { display: none; }
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-                <nav>
-            <ul>
-                <li>
-                    <a href="#home">Home ▾</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#mission">Mission & Vision</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#programs">Program ▾</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#piano">Private Piano Classes</a></li>
-                        <li class="submenu-parent">
-                            <a href="#after-school">After-school Programs ▸</a>
-                            <ul class="submenu">
-                                <li><a href="#guitar">Group Guitar</a></li>
-                                <li><a href="#group-piano">Group Piano</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li><a href="#team">Our Team</a></li>
-                <li><a href="#join">Join Us</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section id="home" class="hero">
-        <div class="bible-section">
-            <p style="font-size: 1.4rem; color: var(--morandi-dark);">
-                "Praise him with the sounding of the trumpet, praise him with the harp and lyre..."
-                <span style="font-size: 1.1rem; display: block; margin-top: 10px; color: var(--morandi-gold);">“要用角声赞美他，鼓瑟弹琴赞美他...”</span>
-            </p>
-            <p style="font-weight: bold; color: var(--morandi-green); margin-top: 15px;">— Psalm 150:3-4 | 诗篇 150:3-4</p>
-        </div>
-    </section>
-
-    <section id="about">
-        <div class="grid">
-            <div class="content-box">
-                <h2 style="margin-bottom:20px;">About Us</h2>
-                <p>Yuan Music is a sanctuary where artistic excellence meets spiritual growth.</p>
-            </div>
-            <div id="mission" class="mission-vision">
-                <h2>Mission & Vision</h2>
-                <p>We commit 10% of our profits to support community churches and non-profit organizations.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="programs" style="background-color: var(--morandi-bg);">
-        <h2 class="section-title">Programs</h2>
-        <div class="grid">
-            <div id="piano" class="content-box" style="background:white;">
-                <h3>Private Piano Classes</h3>
-                <p>Individualized attention for technical and spiritual growth.</p>
-            </div>
-            <div id="after-school" class="content-box" style="background:white;">
-                <h3>After-school Programs</h3>
-                <p>Bringing music to schools to help busy families and strengthen community bonding.</p>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 Yuan Music Art. Soli Deo Gloria.</p>
-    </footer>
-
-</body>
-</html>
+            border-top: 3px solid var(--morandi-green
