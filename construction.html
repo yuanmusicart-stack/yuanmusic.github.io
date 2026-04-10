@@ -93,4 +93,131 @@
             box-shadow: 0 8px 16px rgba(0,0,0,0.1);
             top: 100%;
             left: 0;
-            border-top: 3px solid var(--morandi-green
+            border-top: 3px solid var(--morandi-green);
+        }
+
+        nav ul li:hover > .dropdown-menu { display: block; }
+
+        .dropdown-menu li a {
+            padding: 12px 20px;
+            font-size: 1.1rem;
+            text-transform: none;
+            display: block;
+            border-bottom: 1px solid #eee;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: var(--morandi-bg);
+            color: var(--morandi-green);
+        }
+
+        /* 二级菜单 */
+        .submenu-parent { position: relative; }
+        .submenu {
+            display: none;
+            position: absolute;
+            left: 100%;
+            top: 0;
+            background-color: var(--white);
+            min-width: 180px;
+        }
+        .submenu-parent:hover > .submenu { display: block; }
+
+        /* --- Hero 区域间距调整 --- */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(58, 64, 50, 0.4), rgba(58, 64, 50, 0.4)), url('https://images.unsplash.com/photo-1465821508027-567382423106?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            margin-top: 170px; /* 留出足够的空间给大的 Header */
+        }
+
+        .bible-section {
+            background: rgba(248, 249, 247, 0.9);
+            padding: 40px;
+            border-radius: 2px;
+            max-width: 900px;
+            border-left: 5px solid var(--morandi-green);
+        }
+
+        section { padding: 100px 10%; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 50px; }
+        .content-box { background: var(--morandi-bg); padding: 50px; border-radius: 4px; }
+        .mission-vision { background: var(--morandi-dark); color: var(--white); padding: 50px; }
+        footer { background: #2d3029; color: #9ea497; padding: 60px 10%; text-align: center; }
+
+        @media (max-width: 1024px) {
+            .logo-img { height: 100px; width: 100px; }
+            nav ul li a { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="brand-container">
+            <img src="logo_website.png" alt="Yuan Music Logo" class="logo-img">
+        </a>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#home">Home ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#mission">Mission & Vision</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#programs">Program ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#piano">Private Piano Classes</a></li>
+                        <li class="submenu-parent">
+                            <a href="#after-school">After-school Programs ▸</a>
+                            <ul class="submenu">
+                                <li><a href="#guitar">Group Guitar</a></li>
+                                <li><a href="#group-piano">Group Piano</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#team">Our Team</a></li>
+                <li><a href="#join">Join Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="bible-section">
+            <p style="font-size: 1.4rem; color: var(--morandi-dark);">
+                "Praise him with the sounding of the trumpet, praise him with the harp and lyre..."
+                <span style="font-size: 1.1rem; display: block; margin-top: 10px; color: var(--morandi-gold);">“要用角声赞美他，鼓瑟弹琴赞美他...”</span>
+            </p>
+            <p style="font-weight: bold; color: var(--morandi-green); margin-top: 15px;">— Psalm 150:3-4 | 诗篇 150:3-4</p>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="grid">
+            <div class="content-box">
+                <h2 style="margin-bottom:20px; color: var(--morandi-green);">About Us</h2>
+                <p>Yuan Music is a sanctuary where artistic excellence meets spiritual growth.</p>
+            </div>
+            <div id="mission" class="mission-vision">
+                <h2>Mission & Vision</h2>
+                <p>We commit 10% of our profits to support community churches and non-profit organizations.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Yuan Music Art. Soli Deo Gloria.</p>
+    </footer>
+
+</body>
+</html>
