@@ -28,65 +28,67 @@
             scroll-behavior: smooth;
         }
 
-        /* 导航栏 */
-        header {
-            background: var(--white);
-            padding: 15px 5%;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        /* --- 调整后的导航栏 (Headers) --- */
+    header {
+        background: var(--white);
+        padding: 25px 5%; /* 增加上下内边距，让导航栏看起来更大气 */
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-        .brand-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-        }
+    .brand-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+    }
 
-        .logo-img {
-            height: 70px;
-            width: 70px;
-            object-fit: contain;
-            border-radius: 50%;
-        }
+    /* --- 调大 Logo 尺寸 --- */
+    .logo-img {
+        height: 100px; /* 从 70px 增加到 100px */
+        width: 100px;  /* 保持等宽 */
+        object-fit: contain;
+        border-radius: 50%;
+    }
 
-        .brand-name {
-            font-size: 1rem;
-            font-weight: bold;
-            color: var(--gold); /* 这里的金色与Logo中的树一致 */
-            letter-spacing: 2px;
-            margin-top: 5px;
-            text-transform: uppercase;
-        }
+    /* --- 调大工作室名字字体 --- */
+    .brand-name {
+        font-size: 1.5rem; /* 从 1rem 增加到 1.5rem */
+        font-weight: bold;
+        color: var(--gold);
+        letter-spacing: 3px; /* 增加间距 */
+        margin-top: 8px;
+        text-transform: uppercase;
+    }
 
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
+    nav ul {
+        display: flex;
+        list-style: none;
+    }
 
-        nav ul li {
-            margin-left: 30px;
-        }
+    nav ul li {
+        margin-left: 40px; /* 增加选项之间的间距 */
+    }
 
-        nav ul li a {
-            text-decoration: none;
-            color: var(--black);
-            font-weight: 500;
-            transition: color 0.3s;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-        }
+    /* --- 调大导航菜单字体 --- */
+    nav ul li a {
+        text-decoration: none;
+        color: var(--black);
+        font-weight: bold;
+        transition: color 0.3s;
+        font-size: 1.2rem; /* 从 0.9rem 增加到 1.2rem */
+        text-transform: uppercase;
+    }
 
-        nav ul li a:hover {
-            color: var(--gold);
-        }
-
+    nav ul li a:hover {
+        color: var(--gold);
+    }
         /* Hero 区域 & 圣经经文 */
         .hero {
             height: 100vh;
