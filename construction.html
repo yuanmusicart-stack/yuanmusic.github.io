@@ -3,195 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yuan Music | Artistry Rooted in Faith</title>
-  <style>
-        /* 颜色定义 */
+    <title>Yuan Music | Excellence & Faith</title>
+    <style>
+        /* 莫兰迪色系定义 */
         :root {
-            --gold: #D4AF37; /* 金色，匹配Logo中的树 */
-            --black: #1a1a1a;
-            --white: #ffffff;
-            --light-gray: #f9f9f9;
+            --morandi-bg: #EAE7E1;    /* 暖灰底色 */
+            --morandi-green: #A3B18A; /* 灰绿（对应Logo树的颜色感） */
+            --morandi-dark: #3A4032;  /* 深灰绿文字 */
+            --morandi-gold: #B8977E;  /* 柔和金褐色 */
+            --white: #F8F9F7;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            /* 修改全局字体为 Abadi，并提供相似字体作为备选 */
-        font-family: 'Abadi MT Condensed Extra Bold', 'Abadi', 'Arial Nova Cond', sans-serif;
-    }
+            /* 全局使用 Abadi 字体 */
+            font-family: 'Abadi MT Condensed Extra Bold', 'Abadi', 'Arial Nova Cond', sans-serif;
+        }
 
         body {
-            line-height: 1.8;
-            color: var(--black);
+            line-height: 1.7;
+            color: var(--morandi-dark);
             background-color: var(--white);
             scroll-behavior: smooth;
         }
 
-        /* --- 调整后的导航栏 (Headers) --- */
-    header {
-        background: var(--white);
-        padding: 25px 5%; /* 增加上下内边距，让导航栏看起来更大气 */
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 1000;
-        box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+        /* --- 导航栏设计 --- */
+        header {
+            background: var(--white);
+            padding: 25px 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
 
-    .brand-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-decoration: none;
-    }
+        .brand-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+        }
 
-    /* --- 调大 Logo 尺寸 --- */
-    .logo-img {
-        height: 100px; /* 从 70px 增加到 100px */
-        width: 100px;  /* 保持等宽 */
-        object-fit: contain;
-        border-radius: 50%;
-    }
+        .logo-img {
+            height: 120px; /* Logo 弄大 */
+            width: 120px;
+            object-fit: contain;
+            border-radius: 50%;
+        }
 
-    /* --- 调大工作室名字字体 --- */
-    .brand-name {
-        font-size: 1.5rem; /* 从 1rem 增加到 1.5rem */
-        font-weight: bold;
-        color: var(--gold);
-        letter-spacing: 3px; /* 增加间距 */
-        margin-top: 8px;
-        text-transform: uppercase;
-    }
+        .brand-name {
+            font-size: 1.6rem; /* 文字调大 */
+            font-weight: bold;
+            color: var(--morandi-green); /* 跟Logo里的树一个颜色 */
+            letter-spacing: 3px;
+            margin-top: 10px;
+            text-transform: uppercase;
+        }
 
-    nav ul {
-        display: flex;
-        list-style: none;
-    }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
 
-    nav ul li {
-        margin-left: 40px; /* 增加选项之间的间距 */
-    }
+        nav ul li {
+            margin-left: 45px;
+        }
 
-    /* --- 调大导航菜单字体 --- */
-    nav ul li a {
-        text-decoration: none;
-        color: var(--black);
-        font-weight: bold;
-        transition: color 0.3s;
-        font-size: 1.2rem; /* 从 0.9rem 增加到 1.2rem */
-        text-transform: uppercase;
-    }
+        nav ul li a {
+            text-decoration: none;
+            color: var(--morandi-dark);
+            font-weight: bold;
+            font-size: 1.25rem; /* Headers 稍微大一些 */
+            transition: color 0.3s;
+            text-transform: uppercase;
+        }
 
-    nav ul li a:hover {
-        color: var(--gold);
-    }
-        /* Hero 区域 & 圣经经文 */
+        nav ul li a:hover {
+            color: var(--morandi-gold);
+        }
+
+        /* --- Hero 主视觉 --- */
         .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1520529011870-5c6b44c3b8c2?auto=format&fit=crop&w=1920&q=80');
+            height: 90vh;
+            background: linear-gradient(rgba(58, 64, 50, 0.4), rgba(58, 64, 50, 0.4)), url('https://images.unsplash.com/photo-1465821508027-567382423106?auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            color: var(--white);
             text-align: center;
             padding: 0 20px;
+            margin-top: 180px; /* 避开高导航栏 */
+        }
+
+        .bible-section {
+            background: rgba(248, 249, 247, 0.9);
+            padding: 40px;
+            border-radius: 2px;
+            max-width: 900px;
+            border-left: 5px solid var(--morandi-green);
         }
 
         .bible-quote {
-            font-style: italic;
-            font-size: 1.5rem;
-            max-width: 800px;
-            margin-bottom: 20px;
-            color: var(--gold);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--morandi-dark);
         }
 
-        .hero h1 { font-size: 4rem; margin-bottom: 1rem; color: var(--white); }
-        .hero p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 700px; }
+        .bible-cn {
+            font-size: 1.1rem;
+            display: block;
+            margin-top: 10px;
+            color: var(--morandi-gold);
+        }
 
-        /* 通用区块样式 */
+        /* --- 内容区块 --- */
         section { padding: 100px 10%; }
-        h2 { 
-            font-size: 2.5rem; 
-            text-align: center; 
-            margin-bottom: 3rem; 
-            color: var(--black);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
 
-        /* About Us & Vision */
-        .vision-box {
-            background: var(--black);
-            color: var(--white);
-            padding: 60px;
-            border-radius: 5px;
+        .section-title {
+            font-size: 2.5rem;
             text-align: center;
-            border-bottom: 5px solid var(--gold);
+            margin-bottom: 50px;
+            color: var(--morandi-green);
+            letter-spacing: 4px;
         }
 
-        .tithing-note {
-            margin-top: 30px;
-            color: var(--gold);
-            font-weight: bold;
-            font-style: italic;
-        }
-
-        /* Programs 卡片 */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 50px;
+        }
+
+        .content-box {
+            background: var(--morandi-bg);
+            padding: 50px;
+            border-radius: 4px;
+        }
+
+        .mission-vision {
+            background: var(--morandi-dark);
+            color: var(--white);
+            padding: 50px;
+        }
+
+        .tithing-text {
+            margin-top: 25px;
+            color: var(--morandi-green);
+            font-weight: bold;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
         }
 
         .card {
+            background: var(--white);
             padding: 40px;
-            border: 1px solid #eee;
+            border: 1px solid #ddd;
             transition: 0.3s;
-            text-align: center;
         }
 
-        .card:hover {
-            border-color: var(--gold);
-            transform: translateY(-5px);
-        }
+        .card:hover { border-color: var(--morandi-green); }
 
-        .card h3 { color: var(--gold); margin-bottom: 15px; text-transform: uppercase; }
+        .card h3 { color: var(--morandi-green); margin-bottom: 15px; font-size: 1.5rem; }
 
-        /* 按钮 */
         .btn {
-            padding: 15px 40px;
-            background: var(--gold);
-            color: var(--white);
+            padding: 15px 45px;
+            background: var(--morandi-green);
+            color: white;
             text-decoration: none;
-            border-radius: 2px;
-            font-weight: bold;
-            transition: 0.3s;
             display: inline-block;
+            margin-top: 25px;
+            transition: 0.3s;
         }
 
-        .btn:hover { background: #b8860b; }
+        .btn:hover { background: var(--morandi-gold); }
 
         footer {
-            background: var(--black);
-            color: #888;
-            padding: 50px 10%;
+            background: #2d3029;
+            color: #9ea497;
+            padding: 60px 10%;
             text-align: center;
+            font-size: 0.9rem;
         }
 
-        /* 响应式 */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
             nav ul { display: none; }
+            .logo-img { height: 90px; width: 90px; }
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -203,77 +208,19 @@
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
-                <li><a href="#programs">Programs</a></li>
+                <li><a href="#programs">Program</a></li>
                 <li><a href="#team">Our Team</a></li>
                 <li><a href="#join">Join Us</a></li>
             </ul>
         </nav>
     </header>
 
-<section id="home" class="hero">
-        <div class="bible-quote">
-            "Praise him with the sounding of the trumpet, praise him with the harp and lyre, praise him with timbrel and dancing, praise him with the strings and pipe."
-            <br>
-            <span style="font-size: 1.2rem; display: block; margin-top: 15px; font-weight: normal;">
-                “要用角声赞美他，鼓瑟弹琴赞美他；击鼓跳舞赞美他，用丝弦的乐器和箫的声音赞美他。”
-            </span>
+    <section id="home" class="hero">
+        <div class="bible-section">
+            <p class="bible-quote">
+                "Praise him with the sounding of the trumpet, praise him with the harp and lyre, praise him with timbrel and dancing, praise him with the strings and pipe."
+                <span class="bible-cn">“要用角声赞美他，鼓瑟弹琴赞美他；击鼓跳舞赞美他，用丝弦的乐器和箫的声音赞美他。”</span>
+            </p>
+            <p style="font-weight: bold; color: var(--morandi-green);">— Psalm 150:3-4 | 诗篇 150:3-4</p>
         </div>
-        <p style="color: var(--gold); font-weight: bold;">— Psalm 150:3-4 | 诗篇 150:3-4</p>
-        
-        <h1 style="margin-top: 20px;">Inspiring Artistry</h1>
-        <p>A faith-based sanctuary for musical excellence and spiritual growth.</p>
-        <p style="font-size: 1rem; margin-top: -15px;">基于基督信仰的音乐殿堂，助力卓越才华与属灵成长</p>
-        
-        <a href="#join" class="btn" style="margin-top: 20px;">Get Started | 立即开启</a>
-    </section>
-
-    <section>
-        <div class="grid">
-            <div>
-                <h2>About Us</h2>
-                <p>Yuan Music is more than a studio; it is a community where talent meets purpose. We believe that music is a divine gift used to uplift souls and connect people.</p>
-            </div>
-            <div class="vision-box">
-                <h2>Mission & Vision</h2>
-                <p>To cultivate the next generation of musicians through professional excellence and Christian values.</p>
-                <div class="tithing-note">
-                    "Each of you should give what you have decided in your heart to give... for God loves a cheerful giver." (2 Cor 9:7)
-                    <br><br>
-                    We commit 10% of our profits to local churches and non-profit organizations.
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="programs" style="background: var(--light-gray);">
-        <h2>Our Programs</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Private Piano Classes</h3>
-                <p>One-on-one professional instruction tailored to each student's journey, focusing on technique, theory, and the joy of worship through music.</p>
-            </div>
-            <div class="card" style="background: white;">
-                <h3>After-school Programs</h3>
-                <p>We bring music directly to your school. By integrating our programs into the school day, we help busy families reduce commute times and strengthen the bond between students and their school communities.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="team">
-        <h2>Our Team</h2>
-        <p style="text-align: center; max-width: 800px; margin: 0 auto;">Our educators are not only masters of their craft but also mentors dedicated to walking alongside students in their artistic and personal growth.</p>
-    </section>
-
-    <section id="join" style="background: var(--black); color: white; text-align: center;">
-        <h2>Join Our Community</h2>
-        <p>Experience music that resonates with the heart. Contact us today for a consultation or trial lesson.</p>
-        <br><br>
-        <a href="mailto:info@yuanmusic.art" class="btn">Contact Us Now</a>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 Yuan Music Art Studio. All Rights Reserved. <br> "Solli Deo Gloria" — Glory to God Alone.</p>
-    </footer>
-
-</body>
-</html>
+    </section
