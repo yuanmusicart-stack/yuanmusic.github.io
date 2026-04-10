@@ -4,98 +4,190 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yuan Music | Artistry Rooted in Faith</title>
-   <style>
-    /* 颜色定义 */
-    :root {
-        --gold: #D4AF37; 
-        --black: #1a1a1a;
-        --white: #ffffff;
-        --light-gray: #f9f9f9;
-    }
+  <style>
+        /* 颜色定义 */
+        :root {
+            --gold: #D4AF37; /* 金色，匹配Logo中的树 */
+            --black: #1a1a1a;
+            --white: #ffffff;
+            --light-gray: #f9f9f9;
+        }
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        /* 修改全局字体为 Abadi，并提供相似字体作为备选 */
-        font-family: 'Abadi MT Condensed Extra Bold', 'Abadi', 'Arial Nova Cond', sans-serif;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Playfair Display', serif; /* 经典的优雅字体 */
+        }
 
-    body {
-        line-height: 1.8;
-        color: var(--black);
-        background-color: var(--white);
-        scroll-behavior: smooth;
-    }
+        body {
+            line-height: 1.8;
+            color: var(--black);
+            background-color: var(--white);
+            scroll-behavior: smooth;
+        }
 
-    /* --- 调整后的导航栏 (Headers) --- */
-    header {
-        background: var(--white);
-        padding: 25px 5%; /* 增加上下内边距，让导航栏看起来更大气 */
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 1000;
-        box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+        /* 导航栏 */
+        header {
+            background: var(--white);
+            padding: 15px 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .brand-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-decoration: none;
-    }
+        .brand-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+        }
 
-    /* --- 调大 Logo 尺寸 --- */
-    .logo-img {
-        height: 100px; /* 从 70px 增加到 100px */
-        width: 100px;  /* 保持等宽 */
-        object-fit: contain;
-        border-radius: 50%;
-    }
+        .logo-img {
+            height: 70px;
+            width: 70px;
+            object-fit: contain;
+            border-radius: 50%;
+        }
 
-    /* --- 调大工作室名字字体 --- */
-    .brand-name {
-        font-size: 1.5rem; /* 从 1rem 增加到 1.5rem */
-        font-weight: bold;
-        color: var(--gold);
-        letter-spacing: 3px; /* 增加间距 */
-        margin-top: 8px;
-        text-transform: uppercase;
-    }
+        .brand-name {
+            font-size: 1rem;
+            font-weight: bold;
+            color: var(--gold); /* 这里的金色与Logo中的树一致 */
+            letter-spacing: 2px;
+            margin-top: 5px;
+            text-transform: uppercase;
+        }
 
-    nav ul {
-        display: flex;
-        list-style: none;
-    }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
 
-    nav ul li {
-        margin-left: 40px; /* 增加选项之间的间距 */
-    }
+        nav ul li {
+            margin-left: 30px;
+        }
 
-    /* --- 调大导航菜单字体 --- */
-    nav ul li a {
-        text-decoration: none;
-        color: var(--black);
-        font-weight: bold;
-        transition: color 0.3s;
-        font-size: 1.2rem; /* 从 0.9rem 增加到 1.2rem */
-        text-transform: uppercase;
-    }
+        nav ul li a {
+            text-decoration: none;
+            color: var(--black);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
 
-    nav ul li a:hover {
-        color: var(--gold);
-    }
+        nav ul li a:hover {
+            color: var(--gold);
+        }
 
-    /* --- 调整 Hero 区域的边距，防止被变大的导航栏遮挡 --- */
-    .hero {
-        margin-top: 150px; /* 因为导航栏变大了，所以内容需要往下挪一点 */
-        /* 其余 hero 样式保持不变... */
-    }
-</style>
+        /* Hero 区域 & 圣经经文 */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1520529011870-5c6b44c3b8c2?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--white);
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .bible-quote {
+            font-style: italic;
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        .hero h1 { font-size: 4rem; margin-bottom: 1rem; color: var(--white); }
+        .hero p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 700px; }
+
+        /* 通用区块样式 */
+        section { padding: 100px 10%; }
+        h2 { 
+            font-size: 2.5rem; 
+            text-align: center; 
+            margin-bottom: 3rem; 
+            color: var(--black);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* About Us & Vision */
+        .vision-box {
+            background: var(--black);
+            color: var(--white);
+            padding: 60px;
+            border-radius: 5px;
+            text-align: center;
+            border-bottom: 5px solid var(--gold);
+        }
+
+        .tithing-note {
+            margin-top: 30px;
+            color: var(--gold);
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        /* Programs 卡片 */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .card {
+            padding: 40px;
+            border: 1px solid #eee;
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .card:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .card h3 { color: var(--gold); margin-bottom: 15px; text-transform: uppercase; }
+
+        /* 按钮 */
+        .btn {
+            padding: 15px 40px;
+            background: var(--gold);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: bold;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn:hover { background: #b8860b; }
+
+        footer {
+            background: var(--black);
+            color: #888;
+            padding: 50px 10%;
+            text-align: center;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            nav ul { display: none; }
+        }
+    </style>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
