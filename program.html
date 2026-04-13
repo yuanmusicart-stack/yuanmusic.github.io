@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programs | Yuan Music</title>
+    <style>
+        :root {
+            --morandi-bg: #EAE7E1;    
+            --morandi-green: #A3B18A; 
+            --morandi-dark: #3A4032;  
+            --morandi-gold: #B8977E;  
+            --white: #F8F9F7;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--white);
+            font-family: 'Abadi MT Condensed Extra Bold', 'Abadi', sans-serif;
+            color: var(--morandi-dark);
+            line-height: 1.6;
+        }
+
+        header {
+            padding: 80px 10% 40px;
+            text-align: center;
+            background: var(--morandi-bg);
+        }
+
+        h1 {
+            font-size: 3rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--morandi-dark);
+            margin-bottom: 10px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 5%;
+        }
+
+        /* 课程网格布局 */
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        /* 课程小板块样式 */
+        .program-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 2px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .program-card h3 {
+            font-size: 1.5rem;
+            color: var(--morandi-green);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .program-card p {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 30px;
+            flex-grow: 1;
+        }
+
+        /* 预约链接按钮 */
+        .book-btn {
+            display: inline-block;
+            text-decoration: none;
+            color: var(--morandi-gold);
+            font-weight: bold;
+            border: 2px solid var(--morandi-gold);
+            padding: 10px 20px;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .book-btn:hover {
+            background: var(--morandi-gold);
+            color: white;
+        }
+
+        /* Coming Soon 样式 */
+        .coming-soon {
+            border-style: dashed;
+            opacity: 0.7;
+        }
+
+        .back-home {
+            display: block;
+            width: fit-content;
+            margin: 40px auto;
+            text-decoration: none;
+            color: var(--morandi-green);
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Our Programs</h1>
+        <p>Professional Music Education in Silicon Valley</p>
+    </header>
+
+    <div class="container">
+        <div class="program-grid">
+            
+            <div class="program-card">
+                <h3>Private Piano Classes</h3>
+                <p>One-on-one tailored instruction focusing on technique, musicality, and personalized repertoire.</p>
+                <a href="YOUR_GOOGLE_FORM_URL" class="book-btn">Book a trial class</a>
+            </div>
+
+            <div class="program-card">
+                <h3>Group Piano</h3>
+                <p>A fun, collaborative environment for students to learn together and build foundational skills.</p>
+                <a href="YOUR_GOOGLE_FORM_URL" class="book-btn">Book a trial class</a>
+            </div>
+
+            <div class="program-card">
+                <h3>Private Guitar</h3>
+                <p>Individual sessions covering acoustic or electric guitar, from basic chords to advanced solos.</p>
+                <a href="YOUR_GOOGLE_FORM_URL" class="book-btn">Book a trial class</a>
+            </div>
+
+            <div class="program-card">
+                <h3>Group Guitar</h3>
+                <p>Learn popular songs and essential techniques in a dynamic and social group setting.</p>
+                <a href="YOUR_GOOGLE_FORM_URL" class="book-btn">Book a trial class</a>
+            </div>
+
+            <div class="program-card">
+                <h3>Early Childhood Music</h3>
+                <p>Inspiring the youngest hearts through rhythm, movement, and joyful musical exploration.</p>
+                <a href="YOUR_GOOGLE_FORM_URL" class="book-btn">Book a trial class</a>
+            </div>
+
+            <div class="program-card coming-soon">
+                <h3>Vocal Training</h3>
+                <p>Discover the power of your voice. Professional vocal coaching programs are coming soon.</p>
+                <span class="book-btn" style="border-color: #ccc; color: #ccc;">Coming Soon</span>
+            </div>
+
+            <div class="program-card coming-soon">
+                <h3>Music Theory</h3>
+                <p>Deepen your understanding of the language of music. Comprehensive theory classes coming soon.</p>
+                <span class="book-btn" style="border-color: #ccc; color: #ccc;">Coming Soon</span>
+            </div>
+
+            <div class="program-card coming-soon">
+                <h3>Chamber Music</h3>
+                <p>Experience the art of ensemble playing. Small group chamber programs coming soon.</p>
+                <span class="book-btn" style="border-color: #ccc; color: #ccc;">Coming Soon</span>
+            </div>
+
+        </div>
+
+        <a href="index.html" class="back-home">← Back to Home</a>
+    </div>
+
+</body>
+</html>
