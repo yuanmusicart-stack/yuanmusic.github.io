@@ -1,1 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team | Yuan Music</title>
+    <style>
+        :root {
+            --morandi-bg: #EAE7E1;    
+            --morandi-green: #A3B18A; 
+            --morandi-dark: #3A4032;  
+            --morandi-gold: #B8977E;  
+            --white: #F8F9F7;
+        }
 
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--white);
+            font-family: 'Abadi MT Condensed Extra Bold', 'Abadi', sans-serif;
+            color: var(--morandi-dark);
+            line-height: 1.8;
+        }
+
+        header {
+            padding: 80px 10% 40px;
+            text-align: center;
+            background: var(--morandi-bg);
+        }
+
+        h1 {
+            font-size: 3rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .container {
+            max-width: 1000px; /* 老师介绍页稍微窄一点，阅读体验更好 */
+            margin: 0 auto;
+            padding: 60px 5%;
+        }
+
+        /* 老师卡片容器 */
+        .teacher-card {
+            display: flex;
+            align-items: center; /* 垂直居中 */
+            gap: 50px;
+            margin-bottom: 60px;
+            background: white;
+            padding: 40px;
+            border-radius: 4px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease;
+        }
+
+        .teacher-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* 老师照片样式 */
+        .teacher-photo {
+            flex: 0 0 300px; /* 照片固定宽度 */
+            height: 400px;
+            overflow: hidden;
+            border-radius: 2px;
+        }
+
+        .teacher-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* 自动裁剪填充，保证照片不拉伸 */
+        }
+
+        /* 老师文字介绍样式 */
+        .teacher-info {
+            flex: 1;
+        }
+
+        .teacher-info h2 {
+            font-size: 2rem;
+            color: var(--morandi-green);
+            margin-top: 0;
+            margin-bottom: 5px;
+            letter-spacing: 2px;
+        }
+
+        .teacher-info .title {
+            font-size: 1.1rem;
+            color: var(--morandi-gold);
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .teacher-info p {
+            font-size: 1.05rem;
+            color: #555;
+            text-align: justify;
+        }
+
+        /* 响应式设计：手机端 */
+        @media (max-width: 768px) {
+            .teacher-card {
+                flex-direction: column; /* 变成上下排列 */
+                text-align: center;
+                padding: 30px;
+                gap: 30px;
+            }
+
+            .teacher-photo {
+                flex: 0 0 auto;
+                width: 100%;
+                max-width: 300px;
+                height: 350px;
+            }
+        }
+
+        .back-nav {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: var(--morandi-green);
+            font-size: 1rem;
+            transition: opacity 0.3s;
+        }
+
+        .back-link:hover {
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Our Team</h1>
+        <p>Meet Our Professional Instructors</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="teacher-card">
+            <div class="teacher-photo">
+                <img src="path/to/teacher-ms-zhang.jpg" alt="Ms. Zhang">
+            </div>
+            <div class="teacher-info">
+                <h2>Ms. Zhang</h2>
+                <span class="title">Founder & Piano Instructor</span>
+                <p>
+                    With years of experience in piano pedagogy, Ms. Zhang is dedicated to bringing professional and convenient music education to families. Her teaching style focuses on developing solid technique while fostering a deep sensory connection to music...
+                </p>
+            </div>
+        </div>
+
+        <div class="teacher-card">
+            <div class="teacher-photo">
+                <img src="path/to/teacher-photo2.jpg" alt="Teacher Name">
+            </div>
+            <div class="teacher-info">
+                <h2>Teacher Name</h2>
+                <span class="title">Guitar Instructor</span>
+                <p>
+                    Professional guitarist specializing in both classical and contemporary styles. Passionate about helping students discover their unique musical voice through engaging and structured lessons.
+                </p>
+            </div>
+        </div>
+
+        <div class="back-nav">
+            <a href="programs.html" class="back-link">← Back to Programs</a>
+        </div>
+    </div>
+
+</body>
+</html>
