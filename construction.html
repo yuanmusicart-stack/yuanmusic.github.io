@@ -83,43 +83,9 @@
             display: inline-block;
         }
 
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            background-color: var(--white);
-            min-width: 220px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-            top: 100%;
-            left: 0;
-            border-top: 3px solid var(--morandi-green);
-        }
-
-        nav ul li:hover > .dropdown-menu { display: block; }
-
-        .dropdown-menu li a {
-            padding: 12px 0px;
-            font-size: 1.1rem;
-            text-transform: none;
-            display: block;
-            border-bottom: 1px solid #eee;
-            text-align: left;
-        }
-
-        .dropdown-menu li a:hover {
-            background-color: var(--morandi-bg);
+        nav ul li a:hover {
             color: var(--morandi-green);
         }
-
-        .submenu-parent { position: relative; }
-        .submenu {
-            display: none;
-            position: absolute;
-            left: 100%;
-            top: 0;
-            background-color: var(--white);
-            min-width: 180px;
-        }
-        .submenu-parent:hover > .submenu { display: block; }
 
         /* --- 修改点 2: 调整 Hero 间距以适应超大 Header --- */
         .hero {
@@ -145,9 +111,24 @@
         }
 
         section { padding: 100px 10%; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 50px; }
-        .content-box { background: var(--morandi-bg); padding: 50px; border-radius: 4px; }
-        .mission-vision { background: var(--morandi-dark); color: var(--white); padding: 50px; }
+        
+        /* 合并后的主容器样式 */
+        .combined-box { 
+            background: var(--morandi-bg); 
+            padding: 60px; 
+            border-radius: 4px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .tithing-text { 
+            background: rgba(58, 64, 50, 0.05); 
+            padding: 30px; 
+            border-radius: 4px; 
+            border: 1px solid rgba(163, 177, 138, 0.3);
+            margin-top: 30px;
+        }
+
         footer { background: #2d3029; color: #9ea497; padding: 60px 10%; text-align: center; }
 
         /* --- 修改点 3: 优化移动端适配尺寸 --- */
@@ -155,6 +136,7 @@
             .logo-img { height: 160px; width: 160px; } /* 移动端也相应放大，但保持比例 */
             .hero { margin-top: 190px; }
             nav ul li a { font-size: 1.1rem; }
+            .combined-box { padding: 30px; }
         }
     </style>
 </head>
@@ -166,17 +148,11 @@
         </a>
         <nav>
             <ul>
-                <li>
-                    <a href="#home">Home ▾</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#mission">Mission & Vision</a></li>
-                    </ul>
-                </li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
                 <li><a href="program.html">Program</a></li>
                 <li><a href="event.html">Event</a></li>
                 <li><a href="scent.html">Scent</a></li>
-                
                 <li><a href="our_team.html">Our Family</a></li>
                 <li><a href="#footer">Contact Us</a></li>
             </ul>
@@ -202,30 +178,35 @@
         </div>
     </section>
 
+    <!-- 合并后的 About Us & Mission 模块 -->
     <section id="about">
-        <div class="grid">
-            <div class="content-box">
-                <h2 style="margin-bottom:25px; color: var(--morandi-green); letter-spacing: 2px;">About Us</h2>
+        <div class="combined-box">
+            <!-- About Us 子部分 -->
+            <div style="margin-bottom: 50px;">
+                <h2 style="margin-bottom:25px; color: var(--morandi-green); letter-spacing: 2px; text-transform: uppercase;">About Us</h2>
                 <p style="margin-bottom: 25px; font-size: 1.1rem; line-height: 1.8; color: var(--morandi-dark);">
                     Love is the beginning of music. Yuan Music is a haven amidst the fast-paced life of Silicon Valley—a small oasis where aesthetic beauty and professional excellence meet. 
                 </p>
-                <p style="margin-bottom: 25px; font-size: 1.1rem; line-height: 1.8;">
+                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--morandi-dark);">
                     We nurture the creative hearts of children and provide a serene haven for adults to retreat, awaken long-held childhood dreams, and restore their inner peace through the beauty of art.
                 </p>
             </div>
             
-            <div id="mission" class="mission-vision">
-                <h2 style="color: var(--morandi-green); margin-bottom: 25px;">Mission & Vision</h2>
-                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 30px;">
+            <hr style="border: 0; border-top: 1px solid rgba(58, 64, 50, 0.15); margin-bottom: 40px;">
+
+            <!-- Mission & Vision 子部分 -->
+            <div>
+                <h2 style="color: var(--morandi-green); margin-bottom: 25px; letter-spacing: 2px; text-transform: uppercase;">Mission & Vision</h2>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--morandi-dark);">
                     We provide professional private music education alongside innovative school programs, making art effortlessly accessible for active households.
                 </p>
 
-                <div class="tithing-text" style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 4px; border: 1px solid rgba(163, 177, 138, 0.2);">
-                    <h3 style="color: var(--morandi-green); font-size: 1.3rem; margin-bottom: 15px; text-transform: uppercase;">Giving Back</h3>
-                    <p style="font-size: 1.05rem; margin-bottom: 20px;">
+                <div class="tithing-text">
+                    <h3 style="color: var(--morandi-dark); font-size: 1.3rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">Giving Back</h3>
+                    <p style="font-size: 1.05rem; margin-bottom: 20px; color: var(--morandi-dark);">
                         Giving back is a core part of our values. We commit <strong>10% of our profits</strong> to supporting local churches and non-profit organizations.
                     </p>
-                    <p style="font-style: italic; font-size: 0.9rem; opacity: 0.8; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
+                    <p style="font-style: italic; font-size: 0.9rem; opacity: 0.8; border-top: 1px solid rgba(58, 64, 50, 0.15); padding-top: 15px; color: var(--morandi-dark);">
                         "Each of you should give what you have decided in your heart to give... for God loves a cheerful giver." (2 Cor 9:7)
                     </p>
                 </div>
@@ -233,16 +214,16 @@
         </div>
     </section>
 
-<footer id="footer">
-    <div style="margin-bottom: 30px; color: var(--white);">
-        <h2 style="color: var(--morandi-green); margin-bottom: 20px;">Contact Us</h2>
-        <p>📞 Phone: <a href="tel:334-329-4860" style="color: inherit; text-decoration: none;">334-329-4860</a></p>
-        <p>📧 Email: <a href="mailto:yuanmusic.art@gmail.com" style="color: inherit; text-decoration: none;">yuanmusic.art@gmail.com</a></p>
-        <p>💬 WeChat: yuanyuan-amy</p>
-        <p>📸 Instagram: <a href="https://www.instagram.com/YUANMUSIC.ART" target="_blank" style="color: inherit; text-decoration: none;">@YUANMUSIC.ART</a></p>
-    </div>
-    <p>&copy; 2026 Yuan Music Art. Soli Deo Gloria.</p>
-</footer>
+    <footer id="footer">
+        <div style="margin-bottom: 30px; color: var(--white);">
+            <h2 style="color: var(--morandi-green); margin-bottom: 20px;">Contact Us</h2>
+            <p>📞 Phone: <a href="tel:334-329-4860" style="color: inherit; text-decoration: none;">334-329-4860</a></p>
+            <p>📧 Email: <a href="mailto:yuanmusic.art@gmail.com" style="color: inherit; text-decoration: none;">yuanmusic.art@gmail.com</a></p>
+            <p>💬 WeChat: yuanyuan-amy</p>
+            <p>📸 Instagram: <a href="https://www.instagram.com/YUANMUSIC.ART" target="_blank" style="color: inherit; text-decoration: none;">@YUANMUSIC.ART</a></p>
+        </div>
+        <p>&copy; 2026 Yuan Music Art. Soli Deo Gloria.</p>
+    </footer>
 
 </body>
 </html>
