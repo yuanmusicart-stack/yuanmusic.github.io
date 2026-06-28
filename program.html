@@ -141,3 +141,180 @@
             color: var(--morandi-dark);
             border: none;
             width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .slider-btn:hover {
+            background: var(--morandi-gold);
+            color: white;
+        }
+
+        .prev-btn { left: 15px; }
+        .next-btn { right: 15px; }
+
+        .back-home {
+            display: block;
+            width: fit-content;
+            margin: 60px auto 40px;
+            text-decoration: none;
+            color: var(--morandi-green);
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Our Programs</h1>
+        <p>Professional Music Education in Silicon Valley</p>
+    </header>
+
+    <div class="container">
+        <div class="program-list">
+            
+            <div class="program-card">
+                <div class="program-text">
+                    <h3>Private Piano Classes</h3>
+                    <p>One-on-one tailored instruction focusing on technique, musicality, and personalized repertoire.</p>
+                </div>
+                <div class="gallery-slider" data-autoplay="true" data-random="false">
+                    <button class="slider-btn prev-btn">&lt;</button>
+                    <button class="slider-btn next-btn">&gt;</button>
+                    
+                    <div class="slide-item active"><img src="path/to/piano-private1.jpg" alt="Private Piano 1"></div>
+                    <div class="slide-item"><img src="path/to/piano-private2.jpg" alt="Private Piano 2"></div>
+                    <div class="slide-item">
+                        <video muted loop playsinline><source src="path/to/piano-video.mp4" type="video/mp4"></video>
+                    </div>
+                </div>
+            </div>
+
+            <div class="program-card">
+                <div class="program-text">
+                    <h3>Group Piano</h3>
+                    <p>A fun, collaborative environment for students to learn together and build foundational skills.</p>
+                </div>
+                <div class="gallery-slider" data-autoplay="true" data-random="false">
+                    <button class="slider-btn prev-btn">&lt;</button>
+                    <button class="slider-btn next-btn">&gt;</button>
+                    
+                    <div class="slide-item active"><img src="path/to/piano-group1.jpg" alt="Group Piano 1"></div>
+                    <div class="slide-item"><img src="path/to/piano-group2.jpg" alt="Group Piano 2"></div>
+                </div>
+            </div>
+
+            <div class="program-card">
+                <div class="program-text">
+                    <h3>Group Guitar</h3>
+                    <p>Learn popular songs and essential techniques in a dynamic and social group setting.</p>
+                </div>
+                <div class="gallery-slider" data-autoplay="true" data-random="false">
+                    <button class="slider-btn prev-btn">&lt;</button>
+                    <button class="slider-btn next-btn">&gt;</button>
+                    
+                    <div class="slide-item active"><img src="path/to/guitar1.jpg" alt="Guitar 1"></div>
+                    <div class="slide-item"><img src="path/to/guitar2.jpg" alt="Guitar 2"></div>
+                </div>
+            </div>
+
+            <div class="program-card">
+                <div class="program-text">
+                    <h3>Early Childhood Music</h3>
+                    <p>Inspiring the youngest hearts through rhythm, movement, and joyful musical exploration.</p>
+                </div>
+                <div class="gallery-slider" data-autoplay="true" data-random="false">
+                    <button class="slider-btn prev-btn">&lt;</button>
+                    <button class="slider-btn next-btn">&gt;</button>
+                    
+                    <div class="slide-item active"><img src="path/to/child1.jpg" alt="Early Childhood 1"></div>
+                    <div class="slide-item"><img src="path/to/child2.jpg" alt="Early Childhood 2"></div>
+                </div>
+            </div>
+        </div>
+
+        <a href="index.html" class="back-home">← Back to Home</a>
+    </div>
+
+    <script>
+        document.querySelectorAll('.gallery-slider').forEach(slider => {
+            const slides = slider.querySelectorAll('.slide-item');
+            const prevBtn = slider.querySelector('.prev-btn');
+            const nextBtn = slider.querySelector('.next-btn');
+            
+            const isAutoplay = slider.getAttribute('data-autoplay') === 'true';
+            const isRandom = slider.getAttribute('data-random') === 'true';
+            
+            let currentIndex = 0;
+            let timer = null;
+
+            function playVideo(slide) {
+                const video = slide.querySelector('video');
+                if (video) video.play().catch(() => {});
+            }
+
+            function stopVideo(slide) {
+                const video = slide.querySelector('video');
+                if (video) video.pause();
+            }
+
+            function showSlide(index) {
+                stopVideo(slides[currentIndex]);
+                slides[currentIndex].classList.remove('active');
+                
+                currentIndex = (index + slides.length) % slides.length;
+                
+                slides[currentIndex].classList.add('active');
+                playVideo(slides[currentIndex]);
+            }
+
+            function nextSlide() {
+                if (isRandom && slides.length > 1) {
+                    let nextIndex;
+                    do {
+                        nextIndex = Math.floor(Math.random() * slides.length);
+                    } while (nextIndex === currentIndex);
+                    showSlide(nextIndex);
+                } else {
+                    showSlide(currentIndex + 1);
+                }
+            }
+
+            function prevSlide() {
+                showSlide(currentIndex - 1);
+            }
+
+            nextBtn.addEventListener('click', () => {
+                nextSlide();
+                resetTimer();
+            });
+
+            prevBtn.addEventListener('click', () => {
+                prevSlide();
+                resetTimer();
+            });
+
+            function startTimer() {
+                if (isAutoplay && slides.length > 1) {
+                    timer = setInterval(nextSlide, 3500);
+                }
+            }
+
+            function resetTimer() {
+                clearInterval(timer);
+                startTimer();
+            }
+
+            playVideo(slides[currentIndex]);
+            startTimer();
+        });
+    </script>
+</body>
+</html>
