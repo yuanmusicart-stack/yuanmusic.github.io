@@ -37,60 +37,77 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1000px; /* 稍微缩小最大宽度，让单列排版更紧凑高级 */
             margin: 0 auto;
             padding: 60px 5%;
         }
 
-        /* 课程网格布局 */
-        .program-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
+        /* --- 修改：从上到下、一个一个摆放的列表布局 --- */
+        .program-list {
+            display: flex;
+            flex-direction: column;
+            gap: 50px; /* 课程之间的间距 */
+            margin-bottom: 80px;
         }
 
         .program-card {
             background: white;
-            padding: 40px 30px;
-            border-radius: 2px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 40px;
+            border-radius: 4px;
             border: 1px solid #eee;
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            flex-direction: row; /* 左右并排：左边文字，右边轮播 */
+            gap: 40px;
+            align-items: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* 响应式：在手机等小屏幕上自动切回上下堆叠 */
+        @media (max-width: 768px) {
+            .program-card {
+                flex-direction: column;
+                padding: 30px 20px;
+                gap: 20px;
+            }
+            .program-text, .gallery-slider {
+                width: 100% !important;
+            }
         }
 
         .program-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
         }
 
-        .program-card h3 {
-            font-size: 1.5rem;
+        /* 课程文字区域 */
+        .program-text {
+            width: 50%;
+            text-align: left;
+        }
+
+        .program-text h3 {
+            font-size: 1.8rem;
             color: var(--morandi-green);
-            margin-bottom: 20px;
+            margin-top: 0;
+            margin-bottom: 15px;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        .program-card p {
-            font-size: 1rem;
+        .program-text p {
+            font-size: 1.05rem;
             color: #666;
-            margin-bottom: 20px;
-            flex-grow: 1;
+            margin: 0;
         }
 
-        /* --- 新增/修改：轮播幻灯片容器 --- */
+        /* 轮播幻灯片媒体区域 */
         .gallery-slider {
             position: relative;
-            width: 100%;
-            aspect-ratio: 4 / 3; /* 保持原代码的 4:3 比例 */
-            background: #eee;
+            width: 50%;
+            aspect-ratio: 4 / 3; /* 保持 4:3 比例 */
+            background: #f0f0f0;
             border-radius: 4px;
             overflow: hidden;
-            margin-top: 15px;
         }
 
         .slide-item {
@@ -102,9 +119,6 @@
             opacity: 0;
             transition: opacity 0.6s ease-in-out;
             z-index: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
 
         .slide-item.active {
@@ -123,7 +137,7 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.75);
             color: var(--morandi-dark);
             border: none;
             width: 36px;
@@ -131,7 +145,7 @@
             border-radius: 50%;
             cursor: pointer;
             z-index: 10;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -143,10 +157,10 @@
             color: white;
         }
 
-        .prev-btn { left: 10px; }
-        .next-btn { right: 10px; }
+        .prev-btn { left: 15px; }
+        .next-btn { right: 15px; }
 
-        /* --- 底部旧的 Classroom Moments 样式保留 --- */
+        /* --- 底部 Classroom Moments 保持原样 --- */
         .gallery-container {
             text-align: center;
             margin-top: 60px;
@@ -207,11 +221,15 @@
     </header>
 
     <div class="container">
-        <div class="program-grid">
+        <!-- 切换为单列直排列表（program-list） -->
+        <div class="program-list">
             
+            <!-- 1. Private Piano Classes -->
             <div class="program-card">
-                <h3>Private Piano Classes</h3>
-                <p>One-on-one tailored instruction focusing on technique, musicality, and personalized repertoire.</p>
+                <div class="program-text">
+                    <h3>Private Piano Classes</h3>
+                    <p>One-on-one tailored instruction focusing on technique, musicality, and personalized repertoire.</p>
+                </div>
                 <div class="gallery-slider" data-autoplay="true" data-random="false">
                     <button class="slider-btn prev-btn">&lt;</button>
                     <button class="slider-btn next-btn">&gt;</button>
@@ -224,9 +242,12 @@
                 </div>
             </div>
 
+            <!-- 2. Group Piano -->
             <div class="program-card">
-                <h3>Group Piano</h3>
-                <p>A fun, collaborative environment for students to learn together and build foundational skills.</p>
+                <div class="program-text">
+                    <h3>Group Piano</h3>
+                    <p>A fun, collaborative environment for students to learn together and build foundational skills.</p>
+                </div>
                 <div class="gallery-slider" data-autoplay="true" data-random="false">
                     <button class="slider-btn prev-btn">&lt;</button>
                     <button class="slider-btn next-btn">&gt;</button>
@@ -236,9 +257,12 @@
                 </div>
             </div>
 
+            <!-- 3. Group Guitar -->
             <div class="program-card">
-                <h3>Group Guitar</h3>
-                <p>Learn popular songs and essential techniques in a dynamic and social group setting.</p>
+                <div class="program-text">
+                    <h3>Group Guitar</h3>
+                    <p>Learn popular songs and essential techniques in a dynamic and social group setting.</p>
+                </div>
                 <div class="gallery-slider" data-autoplay="true" data-random="false">
                     <button class="slider-btn prev-btn">&lt;</button>
                     <button class="slider-btn next-btn">&gt;</button>
@@ -248,9 +272,12 @@
                 </div>
             </div>
 
+            <!-- 4. Early Childhood Music -->
             <div class="program-card">
-                <h3>Early Childhood Music</h3>
-                <p>Inspiring the youngest hearts through rhythm, movement, and joyful musical exploration.</p>
+                <div class="program-text">
+                    <h3>Early Childhood Music</h3>
+                    <p>Inspiring the youngest hearts through rhythm, movement, and joyful musical exploration.</p>
+                </div>
                 <div class="gallery-slider" data-autoplay="true" data-random="false">
                     <button class="slider-btn prev-btn">&lt;</button>
                     <button class="slider-btn next-btn">&gt;</button>
@@ -261,6 +288,7 @@
             </div>
         </div>
 
+        <!-- 底部保留的 Classroom Moments 展示区 -->
         <div class="gallery-container">
             <h2 class="gallery-title">Classroom Moments</h2>
             <div class="gallery-grid">
@@ -285,13 +313,13 @@
         <a href="index.html" class="back-home">← Back to Home</a>
     </div>
 
+    <!-- 轮播控制 JS 脚本 -->
     <script>
         document.querySelectorAll('.gallery-slider').forEach(slider => {
             const slides = slider.querySelectorAll('.slide-item');
             const prevBtn = slider.querySelector('.prev-btn');
             const nextBtn = slider.querySelector('.next-btn');
             
-            // 读取配置：是否自动播放、是否随机
             const isAutoplay = slider.getAttribute('data-autoplay') === 'true';
             const isRandom = slider.getAttribute('data-random') === 'true';
             
@@ -334,7 +362,6 @@
                 showSlide(currentIndex - 1);
             }
 
-            // 绑定按钮事件
             nextBtn.addEventListener('click', () => {
                 nextSlide();
                 resetTimer();
@@ -345,10 +372,9 @@
                 resetTimer();
             });
 
-            // 自动播放逻辑
             function startTimer() {
                 if (isAutoplay && slides.length > 1) {
-                    timer = setInterval(nextSlide, 3500); // 3.5秒切换一次
+                    timer = setInterval(nextSlide, 3500);
                 }
             }
 
@@ -357,7 +383,6 @@
                 startTimer();
             }
 
-            // 初始化第一个视频（如果第一张是视频的话）
             playVideo(slides[currentIndex]);
             startTimer();
         });
