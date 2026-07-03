@@ -70,6 +70,13 @@
             text-transform: uppercase;
         }
 
+        .empty-state {
+            text-align: center;
+            padding: 100px 0;
+            color: #999;
+            font-style: italic;
+        }
+
         .back-home {
             display: block;
             width: fit-content;
@@ -83,73 +90,75 @@
 
         .back-home:hover { background: var(--morandi-green); color: white; }
 
-        /* ==================== Gallery 画廊新增样式 ==================== */
-        .gallery-container {
+        /* ==================== 轮播图新增样式 ==================== */
+        .carousel-container {
             position: relative;
-            max-width: 800px;
+            max-width: 800px; /* 控制轮播图的最大宽度 */
             margin: 0 auto;
+            overflow: hidden;
             background: white;
             border-radius: 4px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.02);
             border: 1px solid var(--morandi-bg);
-            padding: 15px; /* 让卡片呈现相框画廊感 */
-            box-sizing: border-box;
         }
 
-        .gallery-slide {
+        /* 隐藏所有幻灯片，设置淡入过渡 */
+        .carousel-slide {
             display: none;
             width: 100%;
             text-align: center;
             opacity: 0;
-            transition: opacity 0.5s ease-in-out;
+            transition: opacity 0.6s ease-in-out;
         }
 
-        .gallery-slide.active {
+        /* 激活状态显示并淡入 */
+        .carousel-slide.active {
             display: block;
             opacity: 1;
         }
 
-        .gallery-slide img {
+        .carousel-slide img {
             width: 100%;
-            height: 480px; /* 固定画廊高度 */
-            object-fit: cover;
+            height: 450px; /* 固定高度，可根据你的图片比例自行调整 */
+            object-fit: cover; /* 保证图片不变形地裁剪填充 */
             display: block;
-            border-radius: 2px;
         }
 
-        /* 底部精致小标题 */
-        .gallery-caption {
-            color: var(--morandi-dark);
-            padding: 15px 0 5px 0;
-            font-size: 1.1rem;
-            letter-spacing: 1.5px;
-            font-weight: 500;
-            text-align: center;
-        }
-
-        /* 下方导航小圆点容器 */
-        .gallery-dots {
-            text-align: center;
-            margin-top: 10px;
-        }
-
-        /* 每一个小圆点的样式 */
-        .dot {
-            cursor: pointer;
-            height: 8px;
-            width: 8px;
-            margin: 0 5px;
+        /* 图片下方标题样式 */
+        .carousel-caption {
             background-color: var(--morandi-bg);
-            border-radius: 50%;
-            display: inline-block;
-            transition: background-color 0.3s ease;
+            color: var(--morandi-dark);
+            padding: 15px;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            font-weight: bold;
+            border-top: 1px solid rgba(0,0,0,0.05);
         }
 
-        /* 激活/当前展示的小圆点样式 */
-        .dot.active, .dot:hover {
-            background-color: var(--morandi-green);
-            width: 18px; /* 激活时稍微拉长，更有现代设计感 */
+        /* 左右控制按钮 */
+        .carousel-btn {
+            cursor: pointer;
+            position: absolute;
+            top: calc(50% - 25px); /* 居中扣除自身高度一半 */
+            width: auto;
+            padding: 12px 16px;
+            color: var(--morandi-dark);
+            font-weight: bold;
+            font-size: 20px;
+            transition: 0.3s;
+            user-select: none;
+            background-color: rgba(234, 231, 225, 0.7); /* 使用莫兰迪灰半透明 */
+            border: none;
             border-radius: 4px;
+            text-decoration: none;
+        }
+
+        .carousel-btn.next { right: 15px; }
+        .carousel-btn.prev { left: 15px; }
+
+        .carousel-btn:hover {
+            background-color: var(--morandi-green);
+            color: white;
         }
     </style>
 </head>
@@ -199,72 +208,70 @@
     <section class="event-section">
         <h2>Past Highlights</h2>
         
-        <div class="gallery-container">
-            <div class="gallery-slide active">
+        <div class="carousel-container">
+            <div class="carousel-slide active">
                 <img src="your-image-1.jpg" alt="Highlight 1">
-                <div class="gallery-caption">2025 Winter Chamber Music Night</div>
+                <div class="carousel-caption">2025 Winter Chamber Music Night</div>
             </div>
             
-            <div class="gallery-slide">
+            <div class="carousel-slide">
                 <img src="your-image-2.jpg" alt="Highlight 2">
-                <div class="gallery-caption">Summer Piano Intensive Masterclass</div>
+                <div class="carousel-caption">Summer Piano Intensive Masterclass</div>
             </div>
             
-            <div class="gallery-slide">
+            <div class="carousel-slide">
                 <img src="your-image-3.jpg" alt="Highlight 3">
-                <div class="gallery-caption">Outdoor Community Concert</div>
+                <div class="carousel-caption">Outdoor Community Concert - Music in the Park</div>
             </div>
 
-            <div class="gallery-dots">
-                <span class="dot active" onclick="jumpToSlide(0)"></span>
-                <span class="dot" onclick="jumpToSlide(1)"></span>
-                <span class="dot" onclick="jumpToSlide(2)"></span>
-            </div>
+            <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
         </div>
     </section>
 
     <a href="index.html" class="back-home">Back to Home</a>
 
     <script>
-        let currentSlideIndex = 0;
-        let galleryInterval;
+        let slideIndex = 0;
+        let slideInterval;
 
-        // 启动画廊自动轮播
-        startGallery();
+        // 启动自动播放
+        startAutoPlay();
 
-        function updateGallery(index) {
-            const slides = document.getElementsByClassName("gallery-slide");
-            const dots = document.getElementsByClassName("dot");
+        function showSlides(index) {
+            const slides = document.getElementsByClassName("carousel-slide");
             
-            // 循环边界处理
-            if (index >= slides.length) { currentSlideIndex = 0; }
-            if (index < 0) { currentSlideIndex = slides.length - 1; }
+            // 处理索引边界越界（实现循环）
+            if (index >= slides.length) { slideIndex = 0; }
+            if (index < 0) { slideIndex = slides.length - 1; }
             
-            // 隐藏所有照片并移除圆点高亮
+            // 隐藏所有图片
             for (let i = 0; i < slides.length; i++) {
                 slides[i].classList.remove("active");
-                if(dots[i]) dots[i].classList.remove("active");
             }
             
-            // 显示当前照片，高亮对应圆点
-            slides[currentSlideIndex].classList.add("active");
-            if(dots[currentSlideIndex]) dots[currentSlideIndex].classList.add("active");
+            // 显示当前图片
+            slides[slideIndex].classList.add("active");
         }
 
-        function startGallery() {
-            // 每 4000 毫秒（4秒）自动播下一张
-            galleryInterval = setInterval(() => {
-                currentSlideIndex++;
-                updateGallery(currentSlideIndex);
+        function startAutoPlay() {
+            // 每 4000 毫秒（4秒）自动切换下一张
+            slideInterval = setInterval(() => {
+                slideIndex++;
+                showSlides(slideIndex);
             }, 4000);
         }
 
-        // 点击小圆点直接跳转
-        function jumpToSlide(index) {
-            clearInterval(galleryInterval); // 暂停自动播放
-            currentSlideIndex = index;
-            updateGallery(currentSlideIndex);
-            startGallery(); // 重新开始计时
+        // 手动点击左右按钮
+        function moveSlide(n) {
+            // 停止原本的定时器，避免刚点完按钮就立刻自动切图
+            clearInterval(slideInterval);
+            
+            slideIndex += n;
+            showSlides(slideIndex);
+            
+            // 重新开启自动播放
+            startAutoPlay();
         }
     </script>
 </body>
