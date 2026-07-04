@@ -102,17 +102,18 @@
             font-size: 3rem;
             letter-spacing: 5px;
             text-transform: uppercase;
-            color: var(--morandi-dark);
+            color: var(--morandi-dark); /* 颜色修改点：对调为深色 */
             margin-bottom: 10px;
         }
 
+        /* --- 宽度与主页对齐的全新容器设置 --- */
         .container {
-            max-width: 1000px;
+            max-width: 1200px; /* 宽度从 1000px 扩大至 1200px */
             margin: 0 auto;
-            padding: 30px 5% 60px; /* 调整了顶部留白，配合大标题 */
+            padding: 30px 10% 60px; /* 两侧 padding 从 5% 改为 10%，完美复刻主页间距比例 */
         }
 
-        /* 课程列表布局保持不变 */
+        /* 课程列表布局 */
         .program-list {
             display: flex;
             flex-direction: column;
@@ -270,7 +271,7 @@
 
         <div class="page-title-header">
             <h1>Programs</h1>
-            <p style="letter-spacing: 2px; color: #A3B18A;">Professional Music Education in Silicon Valley</p>
+            <p style="letter-spacing: 2px; color: var(--morandi-green); font-weight: bold;">Professional Music Education in Silicon Valley</p>
         </div>
 
         <div class="container">
@@ -292,7 +293,7 @@
                         <div class="slide-item"><img src="assets/private-piano/private-piano-4.jpg" alt="Private piano 4"></div>
                         <div class="slide-item"><img src="assets/private-piano/private-piano-5.jpg" alt="Private piano 5"></div>
                         
-    
+                        
                     </div>
                 </div>
 
@@ -345,7 +346,9 @@
             <a href="index.html" class="back-home">← Back to Home</a>
         </div>
 
-    </div> <script>
+    </div>
+
+    <script>
         document.querySelectorAll('.gallery-slider').forEach(slider => {
             const slides = slider.querySelectorAll('.slide-item');
             const prevBtn = slider.querySelector('.prev-btn');
