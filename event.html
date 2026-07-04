@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Events | Yuan Music</title>
     <style>
+        /* 继承莫兰迪色系定义 */
         :root {
             --morandi-bg: #EAE7E1;    
             --morandi-green: #A3B18A; 
@@ -13,17 +14,87 @@
             --white: #F8F9F7;
         }
 
-        body {
+        * {
             margin: 0;
             padding: 0;
-            background-color: var(--white);
-            font-family: 'Abadi MT Condensed Extra Bold', 'Abadi', sans-serif;
-            color: var(--morandi-dark);
-            line-height: 1.6;
+            box-sizing: border-box;
+            font-family: 'Abadi MT Condensed Extra Bold', 'Abadi', 'Arial Nova Cond', sans-serif;
         }
 
+        body {
+            line-height: 1.7;
+            color: var(--morandi-dark);
+            background-color: var(--white);
+            scroll-behavior: smooth;
+        }
+
+        /* --- 完全同步主页：导航栏设置 --- */
         header {
-            padding: 60px 10% 20px;
+            background: var(--white);
+            padding: 15px 5%; 
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center; 
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 150px; 
+            width: 150px;
+            object-fit: contain;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-img:hover {
+            transform: scale(1.2);
+        }
+
+        /* 导航菜单 */
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 35px;
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--morandi-dark);
+            font-weight: bold;
+            font-size: 1.3rem; 
+            transition: color 0.3s;
+            text-transform: uppercase;
+            padding: 10px 0;
+            display: inline-block;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: var(--morandi-green);
+        }
+
+        /* --- 子页面专属：防止固定导航栏遮挡内容的间距设置 --- */
+        .page-content-wrapper {
+            margin-top: 170px; /* 同步主页 hero 的 margin-top，留出大 Logo 的空间 */
+        }
+
+        /* --- 子页面原有样式保持与优化 --- */
+        .page-title-header {
+            padding: 40px 10% 20px;
             text-align: center;
         }
 
@@ -38,6 +109,7 @@
             padding: 40px 10%;
             max-width: 1200px;
             margin: 0 auto;
+            scroll-margin-top: 180px; /* 留出跳转间距 */
         }
 
         h2 {
@@ -45,6 +117,7 @@
             padding-bottom: 10px;
             margin-bottom: 30px;
             letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         .event-card {
@@ -70,13 +143,6 @@
             text-transform: uppercase;
         }
 
-        .empty-state {
-            text-align: center;
-            padding: 100px 0;
-            color: #999;
-            font-style: italic;
-        }
-
         .back-home {
             display: block;
             width: fit-content;
@@ -90,10 +156,10 @@
 
         .back-home:hover { background: var(--morandi-green); color: white; }
 
-        /* ==================== 轮播图新增样式 ==================== */
+        /* --- 轮播图样式 --- */
         .carousel-container {
             position: relative;
-            max-width: 800px; /* 控制轮播图的最大宽度 */
+            max-width: 800px; 
             margin: 0 auto;
             overflow: hidden;
             background: white;
@@ -102,7 +168,6 @@
             border: 1px solid var(--morandi-bg);
         }
 
-        /* 隐藏所有幻灯片，设置淡入过渡 */
         .carousel-slide {
             display: none;
             width: 100%;
@@ -111,7 +176,6 @@
             transition: opacity 0.6s ease-in-out;
         }
 
-        /* 激活状态显示并淡入 */
         .carousel-slide.active {
             display: block;
             opacity: 1;
@@ -119,12 +183,11 @@
 
         .carousel-slide img {
             width: 100%;
-            height: 450px; /* 固定高度，可根据你的图片比例自行调整 */
-            object-fit: cover; /* 保证图片不变形地裁剪填充 */
+            height: 450px; 
+            object-fit: cover; 
             display: block;
         }
 
-        /* 图片下方标题样式 */
         .carousel-caption {
             background-color: var(--morandi-bg);
             color: var(--morandi-dark);
@@ -135,11 +198,10 @@
             border-top: 1px solid rgba(0,0,0,0.05);
         }
 
-        /* 左右控制按钮 */
         .carousel-btn {
             cursor: pointer;
             position: absolute;
-            top: calc(50% - 25px); /* 居中扣除自身高度一半 */
+            top: calc(50% - 25px); 
             width: auto;
             padding: 12px 16px;
             color: var(--morandi-dark);
@@ -147,7 +209,7 @@
             font-size: 20px;
             transition: 0.3s;
             user-select: none;
-            background-color: rgba(234, 231, 225, 0.7); /* 使用莫兰迪灰半透明 */
+            background-color: rgba(234, 231, 225, 0.7); 
             border: none;
             border-radius: 4px;
             text-decoration: none;
@@ -155,124 +217,128 @@
 
         .carousel-btn.next { right: 15px; }
         .carousel-btn.prev { left: 15px; }
+        .carousel-btn:hover { background-color: var(--morandi-green); color: white; }
 
-        .carousel-btn:hover {
-            background-color: var(--morandi-green);
-            color: white;
+        /* --- 响应式适配 --- */
+        @media (max-width: 1024px) {
+            .logo-img { height: 160px; width: 160px; } 
+            .page-content-wrapper { margin-top: 190px; }
+            nav ul li a { font-size: 1.1rem; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Events</h1>
-        <p style="letter-spacing: 2px;">Music • Growth • Community</p>
+        <a href="index.html#home" class="brand-container">
+            <img src="Logo_w_transpent_background.png" alt="Yuan Music Logo" class="logo-img">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About Us</a></li>
+                <li><a href="program.html">Program</a></li>
+                <li><a href="event.html" class="active">Event</a></li>
+                <li><a href="scent.html">Scent</a></li>
+                <li><a href="policy.html">Policy</a></li>
+                <li><a href="index.html#footer">Contact Us</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <section class="event-section">
-        <h2>Yuan Music Events</h2>
-        
+    <div class="page-content-wrapper">
 
-        <div class="event-card">
-            <div class="event-info">
-                <span class="tag">Community Outreach</span>
-                <h3>Student performance for Senior Center</h3>
-                <p class="event-date">Fall 2026 | Date: TBD</p>
-                <p class="event-description" style="margin-top: 12px;">
-                Like an oasis, music nourishes the soul, offers solace, fosters connection, and restores our faith.
-            </p>
-            </div>
+        <div class="page-title-header">
+            <h1>Events</h1>
+            <p style="letter-spacing: 2px;">Music • Growth • Community</p>
         </div>
 
-        <div class="event-card">
-            <div class="event-info">
-                <span class="tag">Recital</span>
-                <h3>2026 Spring Annual Student Concert</h3>
-                <p class="event-date">April 25, 2026 | 1:00-2:30 PM</p>
-                
-                <p class="event-location" style="font-weight: bold; margin-bottom: 4px;">
-                    📍 Santa Clara University Music Recital Hall
-                </p>
-                
-                <p class="event-address" style="font-size: 0.9em; color: #555; line-height: 1.4;">
-                    <a href="https://www.google.com/maps/search/?api=1&query=Santa+Clara+University+Music+Recital+Hall" target="_blank" style="text-decoration: none; color: inherit;">
-                        Music & Dance Building, First Floor <br> 
-                        114 Franklin Street, Santa Clara, CA 95050
-                    </a>
-                </p>
-                
-                <p class="event-description" style="margin-top: 12px;">
-                    A celebration of our students' musical journey throughout the year.
-                </p>
-            </div>
-        </div>
-
-
-    </section>
-
-    <section class="event-section">
-        <h2>Past Highlights</h2>
-        
-        <div class="carousel-container">
-            <div class="carousel-slide active">
-                <img src="events/2026-Yuan-Music-Piano-Recital.png" alt="Highlight 1">
-                <div class="carousel-caption">2026 Yuan Music Piano Recital</div>
-            </div>
+        <section class="event-section">
+            <h2>Yuan Music Events</h2>
             
-            <div class="carousel-slide">
-                <img src="events/2025-Ms-Zhang-Piano-Recital-OhloneCollege.jpg" alt="Highlight 2">
-                <div class="carousel-caption">2025 Ms Zhang Piano Recital Ohlone College</div>
+            <div class="event-card">
+                <div class="event-info">
+                    <span class="tag">Community Outreach</span>
+                    <h3>Student performance for Senior Center</h3>
+                    <p class="event-date">Fall 2026 | Date: TBD</p>
+                    <p class="event-description" style="margin-top: 12px;">
+                        Like an oasis, music nourishes the soul, offers solace, fosters connection, and restores our faith.
+                    </p>
+                </div>
             </div>
+
+            <div class="event-card">
+                <div class="event-info">
+                    <span class="tag">Recital</span>
+                    <h3>2026 Spring Annual Student Concert</h3>
+                    <p class="event-date">April 25, 2026 | 1:00-2:30 PM</p>
+                    
+                    <p class="event-location" style="font-weight: bold; margin-bottom: 4px;">
+                        📍 Santa Clara University Music Recital Hall
+                    </p>
+                    
+                    <p class="event-address" style="font-size: 0.9em; color: #555; line-height: 1.4;">
+                        <a href="https://www.google.com/maps/search/?api=1&query=Santa+Clara+University+Music+Recital+Hall" target="_blank" style="text-decoration: none; color: inherit;">
+                            Music & Dance Building, First Floor <br> 
+                            114 Franklin Street, Santa Clara, CA 95050
+                        </a>
+                    </p>
+                    
+                    <p class="event-description" style="margin-top: 12px;">
+                        A celebration of our students' musical journey throughout the year.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="event-section">
+            <h2>Past Highlights</h2>
             
-           
+            <div class="carousel-container">
+                <div class="carousel-slide active">
+                    <img src="events/2026-Yuan-Music-Piano-Recital.png" alt="Highlight 1">
+                    <div class="carousel-caption">2026 Yuan Music Piano Recital</div>
+                </div>
+                
+                <div class="carousel-slide">
+                    <img src="events/2025-Ms-Zhang-Piano-Recital-OhloneCollege.jpg" alt="Highlight 2">
+                    <div class="carousel-caption">2025 Ms Zhang Piano Recital Ohlone College</div>
+                </div>
+                
+                <button class="carousel-btn prev" onclick="moveSlide(-1)">❮</button>
+                <button class="carousel-btn next" onclick="moveSlide(1)">❯</button>
+            </div>
+        </section>
 
-            <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
-            <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
-        </div>
-    </section>
+        <a href="index.html" class="back-home">Back to Home</a>
 
-    <a href="index.html" class="back-home">Back to Home</a>
-
-    <script>
+    </div> <script>
         let slideIndex = 0;
         let slideInterval;
 
-        // 启动自动播放
         startAutoPlay();
 
         function showSlides(index) {
             const slides = document.getElementsByClassName("carousel-slide");
-            
-            // 处理索引边界越界（实现循环）
             if (index >= slides.length) { slideIndex = 0; }
             if (index < 0) { slideIndex = slides.length - 1; }
-            
-            // 隐藏所有图片
             for (let i = 0; i < slides.length; i++) {
                 slides[i].classList.remove("active");
             }
-            
-            // 显示当前图片
             slides[slideIndex].classList.add("active");
         }
 
         function startAutoPlay() {
-            // 每 4000 毫秒（4秒）自动切换下一张
             slideInterval = setInterval(() => {
                 slideIndex++;
                 showSlides(slideIndex);
             }, 4000);
         }
 
-        // 手动点击左右按钮
         function moveSlide(n) {
-            // 停止原本的定时器，避免刚点完按钮就立刻自动切图
             clearInterval(slideInterval);
-            
             slideIndex += n;
             showSlides(slideIndex);
-            
-            // 重新开启自动播放
             startAutoPlay();
         }
     </script>
