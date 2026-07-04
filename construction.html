@@ -149,21 +149,21 @@
             section { padding: 80px 5%; scroll-margin-top: 160px; } 
         }
 
-        /* --- 核心修复：针对手机端的完美自适应排版 --- */
+        /* --- 针对手机端的完美自适应排版 --- */
         @media (max-width: 768px) {
             header {
-                flex-direction: column;    /* 导航栏变为上下双层结构 */
+                flex-direction: column;    
                 align-items: center;
                 padding: 15px 10px 10px;
                 position: fixed;
             }
 
             .brand-container {
-                margin-bottom: 8px;       /* 调整 Logo 和下方菜单的距离 */
+                margin-bottom: 8px;       
             }
 
             .logo-img { 
-                height: 90px !important;   /* 手机端无缝微调 Logo 大小，精致不突兀 */
+                height: 90px !important;   
                 width: 90px !important; 
             }
 
@@ -172,22 +172,21 @@
             }
 
             nav ul {
-                justify-content: center;   /* 菜单文字水平居中 */
-                flex-wrap: wrap;           /* 允许菜单在极窄屏幕上优雅换行 */
+                justify-content: center;   
+                flex-wrap: wrap;           
                 padding: 0 5px;
             }
 
             nav ul li {
-                margin-left: 10px !important;  /* 强行缩减间距，防止溢出 */
+                margin-left: 10px !important;  
                 margin-right: 10px !important;
             }
 
             nav ul li a { 
-                font-size: 1rem !important;    /* 稍微改小字号，匹配手机版面 */
+                font-size: 1rem !important;    
                 padding: 6px 0;
             }
 
-            /* 手机端 header 变高了，我们要同步加大 Hero 和 Section 的安全距离，防止遮挡正文 */
             .hero { 
                 margin-top: 165px !important; 
                 scroll-margin-top: 175px !important;
@@ -201,11 +200,13 @@
             }
             
             .bible-section {
-                padding: 25px 20px;
+                padding: 30px 20px; 
             }
             
-            .bible-section p {
-                font-size: 1.05rem !important;
+            /* 手机端也强行保持 1.2rem，确保中英文经文足够清晰大气 */
+            .bible-section p.bible-quote, 
+            .bible-section p.bible-cn {
+                font-size: 1.2rem !important;
             }
         }
     </style>
@@ -231,10 +232,10 @@
 
     <section id="home" class="hero">
         <div class="bible-section">
-            <p class="bible-quote">
+            <p class="bible-quote" style="font-size: 1.2rem;">
                 "Sing to him a new song; play skillfully, and shout for joy."
             </p>
-            <p class="bible-cn">
+            <p class="bible-cn" style="font-size: 1.2rem; margin-top: 15px;">
                 “以新歌颂扬，以精湛的技艺弹奏，满怀喜悦地欢呼”
             </p>
             <p style="font-weight: bold; color: var(--morandi-green); margin-top: 20px; letter-spacing: 2px;">
