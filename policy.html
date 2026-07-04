@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Class Policy | Yuan Music</title>
     <style>
+        /* 莫兰迪色系定义 */
         :root {
             --morandi-bg: #EAE7E1;    
             --morandi-green: #A3B18A; 
@@ -13,32 +14,113 @@
             --white: #F8F9F7;
         }
 
-        body {
+        * {
             margin: 0;
             padding: 0;
-            background-color: var(--white);
-            font-family: 'Abadi MT Condensed Extra Bold', 'Abadi', sans-serif;
-            color: var(--morandi-dark);
-            line-height: 1.8;
+            box-sizing: border-box;
+            font-family: 'Abadi MT Condensed Extra Bold', 'Abadi', 'Arial Nova Cond', sans-serif;
         }
 
+        body {
+            line-height: 1.8;
+            color: var(--morandi-dark);
+            background-color: var(--white);
+            scroll-behavior: smooth;
+        }
+
+        /* --- 完全同步主页：固定式导航栏设置 --- */
         header {
-            padding: 80px 10% 40px;
+            background: var(--white);
+            padding: 15px 5%; 
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center; 
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 150px; 
+            width: 150px;
+            object-fit: contain;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-img:hover {
+            transform: scale(1.2);
+        }
+
+        /* 导航菜单 */
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 35px;
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--morandi-dark);
+            font-weight: bold;
+            font-size: 1.3rem; 
+            transition: color 0.3s;
+            text-transform: uppercase;
+            padding: 10px 0;
+            display: inline-block;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: var(--morandi-green);
+        }
+
+        /* --- 核心修复点：改用 padding-top 彻底解决边距折叠和遮挡 --- */
+        .page-content-wrapper {
+            padding-top: 170px;   /* 极稳固的顶部安全距离，留出大 Logo 空间 */
+            padding-left: 10%;    /* 两侧缩进 10%，完美与主页及 Program 页内容对齐 */
+            padding-right: 10%;
+            padding-bottom: 60px;
+            width: 100%;
+        }
+
+        /* --- 统一的页面大标题设计 --- */
+        .page-title-header {
+            padding: 60px 0 20px;
             text-align: center;
-            background: var(--morandi-bg);
         }
 
         h1 {
             font-size: 3rem;
             letter-spacing: 5px;
             text-transform: uppercase;
+            color: var(--morandi-dark);
             margin-bottom: 10px;
         }
 
+        .page-title-header p {
+            letter-spacing: 1px; 
+            color: var(--morandi-green); 
+            font-weight: bold;
+        }
+
+        /* 全局容器：宽度扩展至 1200px 与主页一致 */
         .container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 5%;
+            padding: 20px 0;
         }
 
         /* Policy Section Styles */
@@ -48,6 +130,7 @@
             margin-bottom: 40px;
             border-radius: 4px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            border: 1px solid #eee;
         }
 
         .policy-section h2 {
@@ -58,6 +141,7 @@
             border-bottom: 2px solid var(--morandi-bg);
             padding-bottom: 10px;
             letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         /* List Styles */
@@ -112,54 +196,77 @@
         .back-link:hover {
             opacity: 0.7;
         }
+
+        /* 移动端/平板端自适应调整 */
+        @media (max-width: 1024px) {
+            .logo-img { height: 160px; width: 160px; } 
+            .page-content-wrapper { padding-top: 190px; } 
+            nav ul li a { font-size: 1.1rem; }
+            .policy-section { padding: 30px 20px; }
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Class Policy</h1>
-        <p>Studio Regulations & Guidelines</p>
+        <a href="index.html#home" class="brand-container">
+            <img src="Logo_w_transpent_background.png" alt="Yuan Music Logo" class="logo-img">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About Us</a></li>
+                <li><a href="program.html">Program</a></li>
+                <li><a href="event.html">Event</a></li>
+                <li><a href="scent.html">Scent</a></li>
+                <li><a href="policy.html" class="active">Policy</a></li>
+                <li><a href="index.html#footer">Contact Us</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <div class="container">
-        
-        <!-- SECTION 1: 1-on-1 Private Piano Lessons -->
-        <div class="policy-section">
-            <h2>1-on-1 Private Piano Lessons</h2>
-            <ul class="policy-list">
-                <li><span class="highlight">Eligibility:</span> Open to children (ages 5+) and adults of all skill levels, from complete beginners to advanced pianists. <span class="highlight">A free trial lesson is available for new students.</span></li>
-                <li><span class="highlight">Tuition & Billing:</span> Tuition is collected in advance for <span class="highlight">packages of 10 lessons</span>. Fees are deducted based on actual student attendance rather than a fixed monthly flat rate.</li>
-                <li><span class="highlight">Cancellation & Attendance:</span> A minimum of <span class="alert-text">24-hour notice</span> is strictly required for cancellations or rescheduling. Sessions cancelled with less than 24 hours' notice will be charged in full, except in cases of sudden illness.</li>
-                <li><span class="highlight">Makeup Lessons:</span> If a lesson must be missed due to prior scheduling conflicts, students may coordinate with the instructor in advance to arrange a <span class="highlight">makeup class</span>.</li>
-            </ul>
+    <div class="page-content-wrapper">
+
+        <div class="page-title-header">
+            <h1>Class Policy</h1>
+            <p>Studio Regulations & Guidelines</p>
         </div>
 
-        <!-- SECTION 2: Group Classes -->
-        <div class="policy-section">
-            <h2>Group Classes</h2>
-            <ul class="policy-list">
-                <li><span class="highlight">Group Piano Course:</span> Designed as a small group setting with <span class="highlight">5 to 7 students</span> per class. The studio provides each student with a premium Japanese brand, 88-key, full-size, semi-weighted digital piano for in-class use.</li>
-                <li><span class="highlight">Group Guitar Course:</span> Structured with <span class="highlight">3 to 5 students</span> per class. The studio provides each student with an acoustic guitar for in-class use.</li>
-                <li><span class="highlight">Early Childhood Music Class:</span> Tailored specifically for young learners aged <span class="highlight">3 to 5.5 years old</span>. The curriculum runs twice a year, consisting of 7 sessions per term.</li>
-                <li><span class="highlight">Schedule & Makeup Policy:</span> Group class schedules and term durations are fully synchronized with our partner schools' academic semesters. Tuition and material fees must be <span class="highlight">paid in full prior to the start of the semester</span>. Due to the cooperative nature of group structures, <span class="alert-text">makeup classes or tuition refunds cannot be provided for individual student absences</span> during the term.</li>
-            </ul>
+        <div class="container">
+            
+            <div class="policy-section">
+                <h2>1-on-1 Private Piano Lessons</h2>
+                <ul class="policy-list">
+                    <li><span class="highlight">Eligibility:</span> Open to children (ages 5+) and adults of all skill levels, from complete beginners to advanced pianists. <span class="highlight">A free trial lesson is available for new students.</span></li>
+                    <li><span class="highlight">Tuition & Billing:</span> Tuition is collected in advance for <span class="highlight">packages of 10 lessons</span>. Fees are deducted based on actual student attendance rather than a fixed monthly flat rate.</li>
+                    <li><span class="highlight">Cancellation & Attendance:</span> A minimum of <span class="alert-text">24-hour notice</span> is strictly required for cancellations or rescheduling. Sessions cancelled with less than 24 hours' notice will be charged in full, except in cases of sudden illness.</li>
+                    <li><span class="highlight">Makeup Lessons:</span> If a lesson must be missed due to prior scheduling conflicts, students may coordinate with the instructor in advance to arrange a <span class="highlight">makeup class</span>.</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h2>Group Classes</h2>
+                <ul class="policy-list">
+                    <li><span class="highlight">Group Piano Course:</span> Designed as a small group setting with <span class="highlight">5 to 7 students</span> per class. The studio provides each student with a premium Japanese brand, 88-key, full-size, semi-weighted digital piano for in-class use.</li>
+                    <li><span class="highlight">Group Guitar Course:</span> Structured with <span class="highlight">3 to 5 students</span> per class. The studio provides each student with an acoustic guitar for in-class use.</li>
+                    <li><span class="highlight">Early Childhood Music Class:</span> Tailored specifically for young learners aged <span class="highlight">3 to 5.5 years old</span>. The curriculum runs twice a year, consisting of 7 sessions per term.</li>
+                    <li><span class="highlight">Schedule & Makeup Policy:</span> Group class schedules and term durations are fully synchronized with our partner schools' academic semesters. Tuition and material fees must be <span class="highlight">paid in full prior to the start of the semester</span>. Due to the cooperative nature of group structures, <span class="alert-text">makeup classes or tuition refunds cannot be provided for individual student absences</span> during the term.</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h2>Musicianship & Performances</h2>
+                <ul class="policy-list">
+                    <li><span class="highlight">Daily Practice:</span> Fostering true musicianship is a lifelong journey. To ensure consistent progress and artistic growth, students are expected to <span class="highlight">practice at home every day</span>, regardless of duration. As a general rule, higher proficiency levels require longer practice sessions. Active parental reminders and encouragement are highly appreciated.</li>
+                    <li><span class="highlight">Annual Recital:</span> Yuan Music hosts its signature <span class="highlight">Annual Student Concert at the end of April</span> each year. Every student is strongly encouraged to perform, showcasing their hard work and musical accomplishments.</li>
+                    <li><span class="highlight">Community Service:</span> Believing that music should uplift communities, Yuan Music organizes at least <span class="highlight">one community service performance every autumn</span>. Student attendance is <span class="highlight">highly encouraged</span> as a meaningful way to gain stage experience while giving back through music.</li>
+                </ul>
+            </div>
+
+            <div class="back-nav">
+                <a href="program.html" class="back-link">← Back to Programs</a>
+            </div>
         </div>
 
-        <!-- SECTION 3: Musicianship & Performances -->
-        <div class="policy-section">
-            <h2>Musicianship & Performances</h2>
-            <ul class="policy-list">
-                <li><span class="highlight">Daily Practice:</span> Fostering true musicianship is a lifelong journey. To ensure consistent progress and artistic growth, students are expected to <span class="highlight">practice at home every day</span>, regardless of duration. As a general rule, higher proficiency levels require longer practice sessions. Active parental reminders and encouragement are highly appreciated.</li>
-                <li><span class="highlight">Annual Recital:</span> Yuan Music hosts its signature <span class="highlight">Annual Student Concert at the end of April</span> each year. Every student is strongly encouraged to perform, showcasing their hard work and musical accomplishments.</li>
-                <li><span class="highlight">Community Service:</span> Believing that music should uplift communities, Yuan Music organizes at least <span class="highlight">one community service performance every autumn</span>. Student attendance is <span class="highlight">highly encouraged</span> as a meaningful way to gain stage experience while giving back through music.</li>
-            </ul>
-        </div>
-
-        <!-- Back Navigation -->
-        <div class="back-nav">
-            <a href="programs.html" class="back-link">← Back to Programs</a>
-        </div>
-    </div>
-
-</body>
+    </div> </body>
 </html>
