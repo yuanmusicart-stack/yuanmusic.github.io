@@ -88,16 +88,16 @@
             color: var(--morandi-green);
         }
 
-        /* --- 子页面专属：防止固定导航栏遮挡内容的间距设置 --- */
+        /* --- 修改点：加大顶部间距，彻底消除遮挡 --- */
         .page-content-wrapper {
-            margin-top: 170px; /* 同步主页 hero 的 margin-top，留出大 Logo 的空间 */
+            margin-top: 260px; /* 从 170px 显著加大到 260px，将内容大幅度向下推 */
             padding: 0 10%;   /* 统一两侧的页面边距 */
         }
 
-        /* --- 优化的内容容器布局 --- */
+        /* --- 内容容器布局 --- */
         .quote-container {
             max-width: 800px;
-            margin: 80px auto 30px; /* 上方留出 80px 艺术间距，水平居中 */
+            margin: 40px auto 30px; /* 水平居中，并留出上下间距 */
             padding: 40px;
             border-left: 5px solid var(--morandi-green);
             background: rgba(234, 231, 225, 0.5);
@@ -151,10 +151,10 @@
             letter-spacing: 2px;
         }
 
-        /* 移动端主页 Header 变高时的自适应空隙 */
+        /* 移动端/平板端主页 Header 变高时的自适应空隙调整 */
         @media (max-width: 1024px) {
             .logo-img { height: 160px; width: 160px; } 
-            .page-content-wrapper { margin-top: 190px; }
+            .page-content-wrapper { margin-top: 280px; } /* 移动端也相应加大到 280px */
             nav ul li a { font-size: 1.1rem; }
         }
     </style>
