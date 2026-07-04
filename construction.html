@@ -48,9 +48,8 @@
             text-decoration: none;
         }
 
-        /* --- 修改点 1: 放大 Logo 尺寸 --- */
         .logo-img {
-            height: 150px; /* 从 150px 增加到 200px */
+            height: 150px; 
             width: 150px;
             object-fit: contain;
             border-radius: 50%;
@@ -87,7 +86,7 @@
             color: var(--morandi-green);
         }
 
-        /* --- 修改点 2: 调整 Hero 间距以适应超大 Header --- */
+        /* --- Hero 间距以适应大 Header --- */
         .hero {
             height: 80vh;
             background: linear-gradient(rgba(58, 64, 50, 0.4), rgba(58, 64, 50, 0.4)), url(Piano_Playing_Girl2.jpg);
@@ -99,8 +98,8 @@
             align-items: center;
             text-align: center;
             padding: 0 20px;
-            margin-top: 170px; /* 进一步增加间距，防止 Logo 遮挡正文标题 */
-            scroll-margin-top: 180px; /* 这会控制点击 Home 标签跳转后，上方完美留出导航栏的空位 */
+            margin-top: 170px; 
+            scroll-margin-top: 180px; 
         }
 
         .bible-section {
@@ -111,13 +110,11 @@
             border-left: 5px solid var(--morandi-green);
         }
           
-        /* ✨ 在这里统一为所有 section 加上了跳转顶部留白 ✨ */
         section { 
             padding: 100px 10%; 
             scroll-margin-top: 180px; 
         }
         
-        /* 合并后的主容器样式 */
         .combined-box { 
             background: var(--morandi-bg); 
             padding: 60px; 
@@ -139,16 +136,77 @@
             color: #9ea497; 
             padding: 60px 10%; 
             text-align: center; 
-            scroll-margin-top: 180px; /* 同样为页脚的 Contact Us 加上留白 */
+            scroll-margin-top: 180px; 
         }
 
-        /* --- 修改点 3: 优化移动端适配尺寸 --- */
+        /* --- 优化平板端适配尺寸（iPad等） --- */
         @media (max-width: 1024px) {
-            .logo-img { height: 160px; width: 160px; } /* 移动端也相应放大，但保持比例 */
-            .hero { margin-top: 190px; }
+            .logo-img { height: 130px; width: 130px; } 
+            .hero { margin-top: 150px; scroll-margin-top: 160px; }
+            nav ul li { margin-left: 20px; }
             nav ul li a { font-size: 1.1rem; }
-            .combined-box { padding: 30px; }
-            section { scroll-margin-top: 190px; } /* 移动端 header 变高了，留白也相应变大 */
+            .combined-box { padding: 40px 30px; }
+            section { padding: 80px 5%; scroll-margin-top: 160px; } 
+        }
+
+        /* --- 核心修复：针对手机端的完美自适应排版 --- */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;    /* 导航栏变为上下双层结构 */
+                align-items: center;
+                padding: 15px 10px 10px;
+                position: fixed;
+            }
+
+            .brand-container {
+                margin-bottom: 8px;       /* 调整 Logo 和下方菜单的距离 */
+            }
+
+            .logo-img { 
+                height: 90px !important;   /* 手机端无缝微调 Logo 大小，精致不突兀 */
+                width: 90px !important; 
+            }
+
+            nav {
+                width: 100%;
+            }
+
+            nav ul {
+                justify-content: center;   /* 菜单文字水平居中 */
+                flex-wrap: wrap;           /* 允许菜单在极窄屏幕上优雅换行 */
+                padding: 0 5px;
+            }
+
+            nav ul li {
+                margin-left: 10px !important;  /* 强行缩减间距，防止溢出 */
+                margin-right: 10px !important;
+            }
+
+            nav ul li a { 
+                font-size: 1rem !important;    /* 稍微改小字号，匹配手机版面 */
+                padding: 6px 0;
+            }
+
+            /* 手机端 header 变高了，我们要同步加大 Hero 和 Section 的安全距离，防止遮挡正文 */
+            .hero { 
+                margin-top: 165px !important; 
+                scroll-margin-top: 175px !important;
+                height: auto;
+                padding: 40px 20px;
+            }
+
+            section { 
+                padding: 60px 5%; 
+                scroll-margin-top: 175px !important; 
+            }
+            
+            .bible-section {
+                padding: 25px 20px;
+            }
+            
+            .bible-section p {
+                font-size: 1.05rem !important;
+            }
         }
     </style>
 </head>
@@ -173,10 +231,10 @@
 
     <section id="home" class="hero">
         <div class="bible-section">
-            <p class="bible-quote" style="font-size: 1.2rem;">
+            <p class="bible-quote">
                 "Sing to him a new song; play skillfully, and shout for joy."
             </p>
-            <p class="bible-cn" style="font-size: 1.2rem; margin-top: 20px;">
+            <p class="bible-cn">
                 “以新歌颂扬，以精湛的技艺弹奏，满怀喜悦地欢呼”
             </p>
             <p style="font-weight: bold; color: var(--morandi-green); margin-top: 20px; letter-spacing: 2px;">
