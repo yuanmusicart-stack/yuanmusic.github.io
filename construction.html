@@ -173,7 +173,7 @@
 
             nav ul {
                 justify-content: center;   
-                flex-wrap: wrap;           
+                flex-wrap: wrap;          
                 padding: 0 5px;
             }
 
@@ -187,23 +187,26 @@
                 padding: 6px 0;
             }
 
+            /* 修改点：显著调大 margin-top，彻底给两行固定的 mobile header 留出充足呼吸空间 */
             .hero { 
-                margin-top: 165px !important; 
-                scroll-margin-top: 175px !important;
+                margin-top: 245px !important; 
+                scroll-margin-top: 255px !important;
                 height: auto;
-                padding: 40px 20px;
+                padding: 35px 15px 50px; /* 调整内边距，让底部英文口号也拥有完美的留白空间 */
             }
 
             section { 
                 padding: 60px 5%; 
-                scroll-margin-top: 175px !important; 
+                scroll-margin-top: 255px !important; 
             }
             
+            /* 修改点：给经文卡片四周在手机上多留出一丝边缘空隙，同时增加 margin-bottom 拉开和下方大字标题的间距 */
             .bible-section {
-                padding: 30px 20px; 
+                padding: 25px 20px; 
+                margin-bottom: 35px; 
             }
             
-            /* 手机端也强行保持 1.2rem，确保中英文经文足够清晰大气 */
+            /* 手机端保持 1.2rem，确保中英文经文足够清晰大气 */
             .bible-section p.bible-quote, 
             .bible-section p.bible-cn {
                 font-size: 1.2rem !important;
@@ -243,9 +246,9 @@
             </p>
         </div>
         
-        <div style="margin-top: 40px; color: var(--white); text-shadow: 1px 1px 3px rgba(0,0,0,0.3);">
+        <div style="margin-top: 15px; color: var(--white); text-shadow: 1px 1px 3px rgba(0,0,0,0.3);">
             <h1 style="font-size: 3rem; text-transform: uppercase;">Inspiring Artistry</h1>
-            <p style="font-size: 1.2rem; letter-spacing: 1px;">Mentorship • Love</p>
+            <p style="font-size: 1.2rem; letter-spacing: 1px; margin-top: 5px;">Mentorship • Love</p>
         </div>
     </section>
 
@@ -257,7 +260,6 @@
                     Love is the fountainhead of music. Love carries warmth—much like an oasis, it offers nourishment, solace, connection, and confidence. We are dedicated to nurturing a deep love for music and art within our students, allowing them to experience the beauty of artistry and the warmth of life amidst a fast-paced world. 
                 </p>
             </div>
-            
             
             <hr style="border: 0; border-top: 1px solid rgba(58, 64, 50, 0.15); margin-bottom: 40px;">
 
