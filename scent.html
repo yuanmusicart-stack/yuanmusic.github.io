@@ -29,21 +29,31 @@
             text-align: center; 
         }
 
-        /* --- 修改点：移除了原先固定 header 的所有主页导航栏 CSS 样式 --- */
-
-        /* --- 子页面专属：由于去掉了固定导航栏，大幅缩减 padding-top 顶开的空间 --- */
+        /* --- 子页面专属：无固定导航栏状态下的基础外包装 --- */
         .page-content-wrapper {
-            padding-top: 60px;    /* 修改点：不再需要 220px，改为舒适自然的顶部间距 */
-            padding-left: 10%;    /* 统一两侧的页面边距 */
-            padding-right: 10%;
+            margin-top: 0; 
             padding-bottom: 60px;
             width: 100%;
         }
 
-        /* --- 内容容器布局 --- */
+        /* --- 新增：同步其他子页面的独立大标题栏样式 --- */
+        .page-title-header {
+            padding: 60px 10% 20px; /* 完美的顶部呼吸间距 */
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--morandi-green); 
+            margin-bottom: 10px;
+        }
+
+        /* --- 名言内容容器布局 --- */
         .quote-container {
             max-width: 800px;
-            margin: 40px auto;    
+            margin: 30px auto 40px; /* 微调 margin 保持大标题与名言框的舒适距离 */
             padding: 40px;
             border-left: 5px solid var(--morandi-green);
             background: rgba(234, 231, 225, 0.5);
@@ -97,23 +107,22 @@
             letter-spacing: 2px;
         }
 
-        /* --- 移动端/平板端自适应调整（Mobile Friendly 核心优化） --- */
+        /* --- 移动端/平板端自适应调整（Mobile Friendly） --- */
         @media (max-width: 768px) {
-            .page-content-wrapper {
-                padding-top: 40px;   /* 手机端进一步微调收紧顶部 */
-                padding-left: 5%;    /* 腾出更多横向空间给文字 */
-                padding-right: 5%;
+            .page-title-header {
+                padding: 40px 5% 10px; /* 手机端适度收紧大标题间距 */
             }
             .quote-container {
-                padding: 30px 20px;  /* 缩小内边距防挤压 */
+                padding: 30px 20px;  
+                margin-top: 15px;
                 border-left: none;   
-                border-top: 4px solid var(--morandi-green); /* 手机端左侧线条改到顶部更美观 */
+                border-top: 4px solid var(--morandi-green); /* 手机端左侧线改到顶部 */
             }
             .quote-en {
-                font-size: 1.6rem;   /* 缩小手机端的英文字号，防止单词过长换行杂乱 */
+                font-size: 1.6rem;   /* 缩小手机端的英文字号，防止生硬断行 */
             }
             .quote-cn {
-                font-size: 1.1rem;   /* 适当缩小中文字号 */
+                font-size: 1.1rem;   
             }
         }
     </style>
@@ -121,6 +130,11 @@
 <body>
 
     <div class="page-content-wrapper">
+
+        <div class="page-title-header">
+            <h1>Scents</h1>
+            <p style="letter-spacing: 2px; color: var(--morandi-dark); font-weight: normal; opacity: 0.85;">Music • Joy • Home</p>
+        </div>
 
         <div class="quote-container">
             <p class="quote-en">"The harmony of scent and sound transcends the reach of language."</p>
