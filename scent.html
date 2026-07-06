@@ -29,68 +29,11 @@
             text-align: center; 
         }
 
-        /* --- 完全同步主页：固定式导航栏设置 --- */
-        header {
-            background: var(--white);
-            padding: 15px 5%; 
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center; 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
-        }
+        /* --- 修改点：移除了原先固定 header 的所有主页导航栏 CSS 样式 --- */
 
-        .brand-container {
-            display: flex;
-            align-items: center; 
-            text-decoration: none;
-        }
-
-        .logo-img {
-            height: 150px; 
-            width: 150px;
-            object-fit: contain;
-            border-radius: 50%;
-            transition: transform 0.3s ease;
-        }
-
-        .logo-img:hover {
-            transform: scale(1.2);
-        }
-
-        /* 导航菜单 */
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 35px;
-            position: relative;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: var(--morandi-dark);
-            font-weight: bold;
-            font-size: 1.3rem; 
-            transition: color 0.3s;
-            text-transform: uppercase;
-            padding: 10px 0;
-            display: inline-block;
-        }
-
-        nav ul li a:hover,
-        nav ul li a.active {
-            color: var(--morandi-green);
-        }
-
-        /* --- 核心修复点：改用 padding-top 彻底解决边距折叠和遮挡 --- */
+        /* --- 子页面专属：由于去掉了固定导航栏，大幅缩减 padding-top 顶开的空间 --- */
         .page-content-wrapper {
-            padding-top: 220px;   /* 极其稳固的顶部安全距离，留出大 Logo 空间 */
+            padding-top: 60px;    /* 修改点：不再需要 220px，改为舒适自然的顶部间距 */
             padding-left: 10%;    /* 统一两侧的页面边距 */
             padding-right: 10%;
             padding-bottom: 60px;
@@ -100,7 +43,7 @@
         /* --- 内容容器布局 --- */
         .quote-container {
             max-width: 800px;
-            margin: 40px auto;    /* 靠 padding 撑开上方后，这里只需保持合理的上下间距 */
+            margin: 40px auto;    
             padding: 40px;
             border-left: 5px solid var(--morandi-green);
             background: rgba(234, 231, 225, 0.5);
@@ -154,35 +97,29 @@
             letter-spacing: 2px;
         }
 
-        /* 移动端/平板端自适应调整 */
-        @media (max-width: 1024px) {
-            .logo-img { height: 160px; width: 160px; } 
-            .page-content-wrapper { padding-top: 240px; } /* 移动端 Logo 变大时同步加深顶部防遮挡 */
-            nav ul li a { font-size: 1.1rem; }
+        /* --- 移动端/平板端自适应调整（Mobile Friendly 核心优化） --- */
+        @media (max-width: 768px) {
+            .page-content-wrapper {
+                padding-top: 40px;   /* 手机端进一步微调收紧顶部 */
+                padding-left: 5%;    /* 腾出更多横向空间给文字 */
+                padding-right: 5%;
+            }
+            .quote-container {
+                padding: 30px 20px;  /* 缩小内边距防挤压 */
+                border-left: none;   
+                border-top: 4px solid var(--morandi-green); /* 手机端左侧线条改到顶部更美观 */
+            }
+            .quote-en {
+                font-size: 1.6rem;   /* 缩小手机端的英文字号，防止单词过长换行杂乱 */
+            }
+            .quote-cn {
+                font-size: 1.1rem;   /* 适当缩小中文字号 */
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. 完全一致的顶部统一导航栏 -->
-    <header>
-        <a href="index.html#home" class="brand-container">
-            <img src="Logo_w_transpent_background.png" alt="Yuan Music Logo" class="logo-img">
-        </a>
-        <nav>
-            <ul>
-                <li><a href="index.html#home">Home</a></li>
-                <li><a href="index.html#about">About Us</a></li>
-                <li><a href="program.html">Program</a></li>
-                <li><a href="event.html">Event</a></li>
-                <li><a href="scent.html" class="active">Scent</a></li>
-                <li><a href="policy.html">Policy</a></li>
-                <li><a href="index.html#footer">Contact Us</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- 2. 主体页面包裹容器 -->
     <div class="page-content-wrapper">
 
         <div class="quote-container">
