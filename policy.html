@@ -28,77 +28,18 @@
             scroll-behavior: smooth;
         }
 
-        /* --- 完全同步主页：固定式导航栏设置 --- */
-        header {
-            background: var(--white);
-            padding: 15px 5%; 
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center; 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
-        }
+        /* --- 修改点：移除了原先固定 header 的所有主页导航栏 CSS 样式 --- */
 
-        .brand-container {
-            display: flex;
-            align-items: center; 
-            text-decoration: none;
-        }
-
-        .logo-img {
-            height: 150px; 
-            width: 150px;
-            object-fit: contain;
-            border-radius: 50%;
-            transition: transform 0.3s ease;
-        }
-
-        .logo-img:hover {
-            transform: scale(1.2);
-        }
-
-        /* 导航菜单 */
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 35px;
-            position: relative;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: var(--morandi-dark);
-            font-weight: bold;
-            font-size: 1.3rem; 
-            transition: color 0.3s;
-            text-transform: uppercase;
-            padding: 10px 0;
-            display: inline-block;
-        }
-
-        nav ul li a:hover,
-        nav ul li a.active {
-            color: var(--morandi-green);
-        }
-
-        /* --- 改用 padding-top 彻底解决边距折叠和遮挡 --- */
+        /* --- 子页面专属：由于去掉了固定导航栏，这里不再需要 padding-top 顶开空间 --- */
         .page-content-wrapper {
-            padding-top: 170px;   /* 极稳固的顶部安全距离，留出大 Logo 空间 */
-            padding-left: 10%;    
-            padding-right: 10%;
+            padding-top: 0; 
             padding-bottom: 60px;
             width: 100%;
         }
 
-        /* --- 统一的页面大标题设计 --- */
+        /* --- 独立的页面大标题设计（完美保留并同步间距） --- */
         .page-title-header {
-            padding: 60px 0 20px;
+            padding: 60px 10% 20px; /* 同步其他子页面的大气顶部呼吸间距 */
             text-align: center;
         }
 
@@ -116,11 +57,11 @@
             font-weight: bold;
         }
 
-        /* 修改点：全局内容容器还原回经典、舒适的 900px 宽度 */
+        /* 全局内容容器 */
         .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 20px 0;
+            padding: 20px 10%; /* 修改点：给两侧增加 10% 基础内边距，确保手机端不会贴边 */
         }
 
         /* Policy Section Styles */
@@ -197,33 +138,27 @@
             opacity: 0.7;
         }
 
-        /* 移动端/平板端自适应调整 */
-        @media (max-width: 1024px) {
-            .logo-img { height: 160px; width: 160px; } 
-            .page-content-wrapper { padding-top: 190px; } 
-            nav ul li a { font-size: 1.1rem; }
-            .policy-section { padding: 30px 20px; }
+        /* --- 移动端/平板端自适应调整（Mobile Friendly 核心优化） --- */
+        @media (max-width: 768px) {
+            .page-title-header {
+                padding: 40px 5% 10px; /* 手机端微调大标题缩紧 */
+            }
+            .container {
+                padding: 10px 5%; /* 手机端两侧内边距微调，留出更多空间给文本 */
+            }
+            .policy-section {
+                padding: 30px 20px; /* 手机端缩小卡片的内边距，防止文本过窄 */
+            }
+            .policy-section h2 {
+                font-size: 1.4rem; /* 缩小手机端栏目二级标题，防止超长换行 */
+            }
+            .policy-list li {
+                font-size: 0.98rem; /* 微微调小手机端字号，提升可读性 */
+            }
         }
     </style>
 </head>
 <body>
-
-    <header>
-        <a href="index.html#home" class="brand-container">
-            <img src="Logo_w_transpent_background.png" alt="Yuan Music Logo" class="logo-img">
-        </a>
-        <nav>
-            <ul>
-                <li><a href="index.html#home">Home</a></li>
-                <li><a href="index.html#about">About Us</a></li>
-                <li><a href="program.html">Program</a></li>
-                <li><a href="event.html">Event</a></li>
-                <li><a href="scent.html">Scent</a></li>
-                <li><a href="policy.html" class="active">Policy</a></li>
-                <li><a href="index.html#footer">Contact Us</a></li>
-            </ul>
-        </nav>
-    </header>
 
     <div class="page-content-wrapper">
 
