@@ -28,75 +28,32 @@
             scroll-behavior: smooth;
         }
 
-        /* --- 完全同步主页：固定式导航栏设置 --- */
-        header {
-            background: var(--white);
-            padding: 15px 5%; 
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center; 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
-        }
+        /* --- 修改点：移除了原先固定 header 的所有 CSS 样式 --- */
 
-        .brand-container {
-            display: flex;
-            align-items: center; 
-            text-decoration: none;
-        }
-
-        .logo-img {
-            height: 150px; 
-            width: 150px;
-            object-fit: contain;
-            border-radius: 50%;
-            transition: transform 0.3s ease;
-        }
-
-        .logo-img:hover {
-            transform: scale(1.2);
-        }
-
-        /* 导航菜单 */
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 35px;
-            position: relative;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: var(--morandi-dark);
-            font-weight: bold;
-            font-size: 1.3rem; 
-            transition: color 0.3s;
-            text-transform: uppercase;
-            padding: 10px 0;
-            display: inline-block;
-        }
-
-        nav ul li a:hover,
-        nav ul li a.active {
-            color: var(--morandi-green);
-        }
-
-        /* --- 子页面专属：防止固定导航栏遮挡内容的间距设置 --- */
+        /* --- 子页面专属：由于去掉了固定导航栏，这里不再需要 margin-top 顶开空间 --- */
         .page-content-wrapper {
-            margin-top: 170px; /* 同步主页 hero 的 margin-top，留出大 Logo 的空间 */
+            margin-top: 0; 
+        }
+
+        /* --- 独立的页面大标题设计（保留） --- */
+        .page-title-header {
+            padding: 60px 10% 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--morandi-dark); 
+            margin-bottom: 10px;
         }
 
         /* --- 宽度与主页对齐的全新容器设置 --- */
         .container {
             max-width: 1200px; 
             margin: 0 auto;
-            padding: 40px 10% 60px; /* 修改点：将顶部 padding 从 30px 稍微调大至 40px，让第一张卡片与导航栏呼吸感更好 */
+            padding: 30px 10% 60px; 
         }
 
         /* 课程列表布局 */
@@ -226,34 +183,17 @@
             font-size: 1rem;
         }
 
-        /* 移动端主页 Header 变高时的自适应空隙 */
-        @media (max-width: 1024px) {
-            .logo-img { height: 160px; width: 160px; } 
-            .page-content-wrapper { margin-top: 190px; }
-            nav ul li a { font-size: 1.1rem; }
-        }
+        /* --- 修改点：移除了原先移动端媒体查询里对 .logo-img 和 .page-content-wrapper 的 margin-top 调整，保持干净 --- */
     </style>
 </head>
 <body>
 
-    <header>
-        <a href="index.html#home" class="brand-container">
-            <img src="Logo_w_transpent_background.png" alt="Yuan Music Logo" class="logo-img">
-        </a>
-        <nav>
-            <ul>
-                <li><a href="index.html#home">Home</a></li>
-                <li><a href="index.html#about">About Us</a></li>
-                <li><a href="program.html" class="active">Program</a></li>
-                <li><a href="event.html">Event</a></li>
-                <li><a href="scent.html">Scent</a></li>
-                <li><a href="policy.html">Policy</a></li>
-                <li><a href="index.html#footer">Contact Us</a></li>
-            </ul>
-        </nav>
-    </header>
-
     <div class="page-content-wrapper">
+
+        <div class="page-title-header">
+            <h1>Programs</h1>
+            <p style="letter-spacing: 2px; color: var(--morandi-green); font-weight: bold;">Professional Music Education in Silicon Valley</p>
+        </div>
 
         <div class="container">
             <div class="program-list">
