@@ -1,1 +1,297 @@
-<p style="font-size: 1.1rem; color: var(--morandi-dark); text-align: center; letter-spacing: 1px;">Yuan Music Art is coming soon! We are currently working on our website and will be launching soon. Stay tuned for updates and announcements about our programs, events, and more. Thank you for your patience and support!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yuan Music | Love & Artistry</title>
+    <style>
+        /* 莫兰迪色系定义 */
+        :root {
+            --morandi-bg: #EAE7E1;    
+            --morandi-green: #A3B18A; 
+            --morandi-dark: #3A4032;  
+            --morandi-gold: #B8977E;  
+            --white: #F8F9F7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Abadi MT Condensed Extra Bold', 'Abadi', 'Arial Nova Cond', sans-serif;
+        }
+
+        body {
+            line-height: 1.7;
+            color: var(--morandi-dark);
+            background-color: var(--white);
+            scroll-behavior: smooth;
+        }
+
+        /* --- 导航栏设置 --- */
+        header {
+            background: var(--white);
+            padding: 15px 5%; 
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center; 
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 150px; 
+            width: 150px;
+            object-fit: contain;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-img:hover {
+            transform: scale(1.2);
+        }
+
+        /* --- 导航菜单 --- */
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 35px;
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--morandi-dark);
+            font-weight: bold;
+            font-size: 1.3rem; 
+            transition: color 0.3s;
+            text-transform: uppercase;
+            padding: 10px 0;
+            display: inline-block;
+        }
+
+        nav ul li a:hover {
+            color: var(--morandi-green);
+        }
+
+        /* --- Hero 间距以适应大 Header --- */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(58, 64, 50, 0.4), rgba(58, 64, 50, 0.4)), url(Piano_Playing_Girl2.jpg);
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            margin-top: 170px; 
+            scroll-margin-top: 180px; 
+        }
+
+        .bible-section {
+            background: rgba(248, 249, 247, 0.9);
+            padding: 40px;
+            border-radius: 2px;
+            max-width: 900px;
+            border-left: 5px solid var(--morandi-green);
+        }
+          
+        section { 
+            padding: 100px 10%; 
+            scroll-margin-top: 180px; 
+        }
+        
+        .combined-box { 
+            background: var(--morandi-bg); 
+            padding: 60px; 
+            border-radius: 4px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .tithing-text { 
+            background: rgba(58, 64, 50, 0.05); 
+            padding: 30px; 
+            border-radius: 4px; 
+            border: 1px solid rgba(163, 177, 138, 0.3);
+            margin-top: 30px;
+        }
+
+        footer { 
+            background: #2d3029; 
+            color: #9ea497; 
+            padding: 60px 10%; 
+            text-align: center; 
+            scroll-margin-top: 180px; 
+        }
+
+        /* --- 优化平板端适配尺寸（iPad等） --- */
+        @media (max-width: 1024px) {
+            .logo-img { height: 130px; width: 130px; } 
+            .hero { margin-top: 150px; scroll-margin-top: 160px; }
+            nav ul li { margin-left: 20px; }
+            nav ul li a { font-size: 1.1rem; }
+            .combined-box { padding: 40px 30px; }
+            section { padding: 80px 5%; scroll-margin-top: 160px; } 
+        }
+
+        /* --- 针对手机端的完美自适应排版 --- */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;    
+                align-items: center;
+                padding: 15px 10px 10px;
+                position: fixed;
+            }
+
+            .brand-container {
+                margin-bottom: 8px;       
+            }
+
+            .logo-img { 
+                height: 90px !important;   
+                width: 90px !important; 
+            }
+
+            nav {
+                width: 100%;
+            }
+
+            nav ul {
+                justify-content: center;   
+                flex-wrap: wrap;          
+                padding: 0 5px;
+            }
+
+            nav ul li {
+                margin-left: 10px !important;  
+                margin-right: 10px !important;
+            }
+
+            nav ul li a { 
+                font-size: 1rem !important;    
+                padding: 6px 0;
+            }
+
+            /* 修改点：显著调大 margin-top，彻底给两行固定的 mobile header 留出充足呼吸空间 */
+            .hero { 
+                margin-top: 245px !important; 
+                scroll-margin-top: 255px !important;
+                height: auto;
+                padding: 35px 15px 50px; /* 调整内边距，让底部英文口号也拥有完美的留白空间 */
+            }
+
+            section { 
+                padding: 60px 5%; 
+                scroll-margin-top: 255px !important; 
+            }
+            
+            /* 修改点：给经文卡片四周在手机上多留出一丝边缘空隙，同时增加 margin-bottom 拉开和下方大字标题的间距 */
+            .bible-section {
+                padding: 25px 20px; 
+                margin-bottom: 35px; 
+            }
+            
+            /* 手机端保持 1.2rem，确保中英文经文足够清晰大气 */
+            .bible-section p.bible-quote, 
+            .bible-section p.bible-cn {
+                font-size: 1.2rem !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="brand-container">
+            <img src="Logo_w_transpent_background.png" alt="Yuan Music Logo" class="logo-img">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="program.html">Program</a></li>
+                <li><a href="event.html">Event</a></li>
+                <li><a href="scent.html">Scent</a></li>
+                <li><a href="policy.html">Policy</a></li>
+                <li><a href="#footer">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="bible-section">
+            <p class="bible-quote" style="font-size: 1.2rem;">
+                "Sing to him a new song; play skillfully, and shout for joy."
+            </p>
+            <p class="bible-cn" style="font-size: 1.2rem; margin-top: 15px;">
+                “以新歌颂扬，以精湛的技艺弹奏，满怀喜悦地欢呼”
+            </p>
+            <p style="font-weight: bold; color: var(--morandi-green); margin-top: 20px; letter-spacing: 2px;">
+                — PSALM 33:3 | 诗篇 33:3
+            </p>
+        </div>
+        
+        <div style="margin-top: 15px; color: var(--white); text-shadow: 1px 1px 3px rgba(0,0,0,0.3);">
+            <h1 style="font-size: 3rem; text-transform: uppercase;">Inspiring Artistry</h1>
+            <p style="font-size: 1.2rem; letter-spacing: 1px; margin-top: 5px;">Mentorship • Love</p>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="combined-box">
+            <div style="margin-bottom: 50px;">
+                <h2 style="margin-bottom:25px; color: var(--morandi-green); letter-spacing: 2px; text-transform: uppercase;">About Us</h2>
+                <p style="margin-bottom: 25px; font-size: 1.1rem; line-height: 1.8; color: var(--morandi-dark);">
+                    Love is the fountainhead of music. Love carries warmth—much like an oasis, it offers nourishment, solace, connection, and confidence. We are dedicated to nurturing a deep love for music and art within our students, allowing them to experience the beauty of artistry and the warmth of life amidst a fast-paced world. 
+                </p>
+            </div>
+            
+            <hr style="border: 0; border-top: 1px solid rgba(58, 64, 50, 0.15); margin-bottom: 40px;">
+
+            <div>
+                <h2 style="color: var(--morandi-green); margin-bottom: 25px; letter-spacing: 2px; text-transform: uppercase;">Mission & Vision</h2>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--morandi-dark);">
+                    Yuan Music offers private piano lessons throughout the Fremont, Union City, and Newark areas in the Bay Area. We also partner with local schools to bring high-quality music programs directly to students, aiming to ignite a lifelong passion for music and inspire true artistry.
+                </p>
+
+                <div class="tithing-text">
+                    <h3 style="color: var(--morandi-dark); font-size: 1.3rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">Giving Back</h3>
+                    <p style="font-size: 1.05rem; margin-bottom: 20px; color: var(--morandi-dark);">
+                        Giving back is a core part of our values. We commit <strong>10% of our profits</strong> to supporting local churches and non-profit organizations.
+                    </p>
+                    <p style="font-style: italic; font-size: 0.9rem; opacity: 0.8; border-top: 1px solid rgba(58, 64, 50, 0.15); padding-top: 15px; color: var(--morandi-dark);">
+                        "Each of you should give what you have decided in your heart to give... for God loves a cheerful giver." (2 Cor 9:7)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <div style="margin-bottom: 30px; color: var(--white);">
+            <h2 style="color: var(--morandi-green); margin-bottom: 20px;">Contact Us</h2>
+            <p>📞 Phone: <a href="tel:334-329-4860" style="color: inherit; text-decoration: none;">334-329-4860</a></p>
+            <p>📧 Email: <a href="mailto:yuanmusic.art@gmail.com" style="color: inherit; text-decoration: none;">yuanmusic.art@gmail.com</a></p>
+            <p>💬 WeChat: yuanyuan-amy</p>
+            <p>📸 Instagram: <a href="https://www.instagram.com/YUANMUSIC.ART" target="_blank" style="color: inherit; text-decoration: none;">@YUANMUSIC.ART</a></p>
+        </div>
+        <p>&copy; 2026 Yuan Music Art. Soli Deo Gloria.</p>
+    </footer>
+
+</body>
+</html>
